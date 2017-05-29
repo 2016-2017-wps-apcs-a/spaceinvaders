@@ -1,4 +1,4 @@
-package org.winchesterps;
+package spaceinvaders;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
