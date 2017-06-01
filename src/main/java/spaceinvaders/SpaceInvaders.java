@@ -16,6 +16,6 @@ public class SpaceInvaders {
      * @param args command-line argument array
      */
     public static void main(String[] args) {
-        System.out.println("# SpaceInvaders!!!");
+        System.out.println("# SpaceInvaders");
     }
 }

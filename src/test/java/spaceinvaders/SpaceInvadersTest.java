@@ -1,3 +1,6 @@
+/*
+ * SpaceInvadersTest.java
+ */
 package spaceinvaders;
 
 import junit.framework.Test;
@@ -6,6 +9,8 @@ import junit.framework.TestSuite;
 
 /**
  * Unit test for simple App.
+ *
+ * @author David C. Petty
  */
 public class SpaceInvadersTest extends TestCase
 {
@@ -14,9 +19,9 @@ public class SpaceInvadersTest extends TestCase
      *
      * @param testName name of the test case
      */
-    public SpaceInvadersTest( String testName )
+    public SpaceInvadersTest(String testName)
     {
-        super( testName );
+        super(testName);
     }
 
     /**
@@ -24,7 +29,7 @@ public class SpaceInvadersTest extends TestCase
      */
     public static Test suite()
     {
-        return new TestSuite( SpaceInvadersTest.class );
+        return new TestSuite(SpaceInvadersTest.class);
     }
 
     /**
@@ -32,6 +37,6 @@ public class SpaceInvadersTest extends TestCase
      */
     public void testSpaceInvaders()
     {
-        assertTrue( true );
+        assertTrue(true);
     }
 }
