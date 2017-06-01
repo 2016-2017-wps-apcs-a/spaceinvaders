@@ -12,31 +12,27 @@ import junit.framework.TestSuite;
  *
  * @author David C. Petty
  */
-public class SpaceInvadersTest extends TestCase
-{
+public class SpaceInvadersTest extends TestCase {
     /**
      * Create the test case
      *
      * @param testName name of the test case
      */
-    public SpaceInvadersTest(String testName)
-    {
+    public SpaceInvadersTest(String testName) {
         super(testName);
     }
 
     /**
      * @return the suite of tests being tested
      */
-    public static Test suite()
-    {
+    public static Test suite() {
         return new TestSuite(SpaceInvadersTest.class);
     }
 
     /**
      * Rigourous Test :-)
      */
-    public void testSpaceInvaders()
-    {
+    public void testSpaceInvaders() {
         assertTrue(true);
     }
 }
