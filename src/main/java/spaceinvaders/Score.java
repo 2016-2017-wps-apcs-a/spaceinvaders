@@ -1,4 +1,4 @@
 package spaceinvaders;
 
-public class ScoreTest {
+public class Score {
 }
