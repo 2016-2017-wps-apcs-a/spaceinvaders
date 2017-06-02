@@ -17,5 +17,7 @@ public class SpaceInvaders {
      */
     public static void main(String[] args) {
         System.out.println("# SpaceInvaders");
+        GUI gui = new GUI();
+        gui.init();
     }
 }
