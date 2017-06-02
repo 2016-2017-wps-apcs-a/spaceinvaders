@@ -9,7 +9,6 @@ package spaceinvaders;
  * @author David C. Petty
  */
 public class SpaceInvaders {
-
     /**
      * The SpaceInvaders main method that initializes the entire game.
      *
