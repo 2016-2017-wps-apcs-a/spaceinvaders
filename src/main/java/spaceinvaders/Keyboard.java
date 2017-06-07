@@ -14,17 +14,17 @@ public class Keyboard implements KeyListener {
     //////////////////////////////// METHODS ///////////////////////////////
 
     /**
-     * Handle the key pressed event from the text field. Calls the move
-     * methods from SpaceShip.
+     * Handle the key pressed event from the text field. Calls the move methods
+     * from SpaceShip.
      */
     public void keyPressed(KeyEvent e) {
         int id = e.getKeyCode();
         switch (id) {
         case KeyEvent.VK_LEFT:
-//            SpaceShip.moveLeft();
+            // SpaceShip.moveLeft();
             break;
         case KeyEvent.VK_RIGHT:
-//            SpaceShip.moveRight();
+            // SpaceShip.moveRight();
             break;
         default:
             break;
@@ -43,11 +43,11 @@ public class Keyboard implements KeyListener {
         int id = e.getKeyChar();
         switch (id) {
         case KeyEvent.VK_SPACE:
-//             SpaceInvaders.togglePause();
+            // SpaceInvaders.togglePause();
             break;
         case KeyEvent.VK_R:
         case 'r':
-//             SpaceInvaders.newGame();
+            // SpaceInvaders.newGame();
             break;
         default:
             break;

@@ -2,6 +2,7 @@
  * SpaceInvaders.java
  */
 package spaceinvaders;
+
 import javax.swing.*;
 
 /**
@@ -13,7 +14,8 @@ public class SpaceInvaders {
     /**
      * The SpaceInvaders main method that initializes the entire game.
      *
-     * @param args command-line argument array
+     * @param args
+     *            command-line argument array
      */
     public static void main(String[] args) {
         System.out.println("# SpaceInvaders");
@@ -23,5 +25,19 @@ public class SpaceInvaders {
                 new GUI();
             }
         });
+    }
+
+    /**
+     * Resets the game.
+     */
+    public static void newGame() {
+        // STUB
+    }
+
+    /**
+     * Pauses the game.
+     */
+    public static void togglePause() {
+        // STUB
     }
 }
