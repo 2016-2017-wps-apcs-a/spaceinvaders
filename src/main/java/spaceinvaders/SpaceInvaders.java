@@ -2,6 +2,7 @@
  * SpaceInvaders.java
  */
 package spaceinvaders;
+import javax.swing.*;
 
 /**
  * SpaceInvaders is the main class for the SpaceInvaders game.
@@ -16,7 +17,11 @@ public class SpaceInvaders {
      */
     public static void main(String[] args) {
         System.out.println("# SpaceInvaders");
-        GUI gui = new GUI();
-        gui.init();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new GUI();
+            }
+        });
     }
 }
