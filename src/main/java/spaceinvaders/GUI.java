@@ -17,7 +17,11 @@ public class GUI extends JPanel {
         c.setPreferredSize(new Dimension(1200, 800));
         window.setLocation(100, 100);
         c.add(this);
-        c.add(new Sprite());
+
+        Sprite ship = new SpaceShip();
+        ship.move(new Point(100, 100));
+        c.add(ship);
+
         window.pack();
         window.setVisible(true);
     }

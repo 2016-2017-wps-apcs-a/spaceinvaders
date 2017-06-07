@@ -13,16 +13,26 @@ import java.util.*;
  */
 public class Sprite extends JComponent {
 
+    private Dimension size;
+    private Point location;
+
     /** The list of <code>FilledPolygons</code> that define the sprite. */
-    private java.util.List<FilledPolygon> polys = new ArrayList<FilledPolygon>();
+    private java.util.List<FilledPolygon> polys;
 
     public Sprite() {
-        polys.add(new FilledPolygon(Color.RED,
-                                    new int[] { 685, 784, 784, 685, },
-                                    new int[] { 720, 720, 779, 779, }));
-        polys.add(new FilledPolygon(Color.GRAY,
-                                    new int[] { 685, 704, 704, 685, },
-                                    new int[] { 695, 695, 744, 744, }));
+        polys = new ArrayList<FilledPolygon>();
+        size = new Dimension(100, 100);
+        location = new Point();
+    }
+
+    public void move(Point p) {
+        for (FilledPolygon poly : polys)
+            poly.translate((int) (p.getX() - location.getX()), (int)(p.getY() - location.getY()));
+        location = p;
+    }
+
+    public void add(FilledPolygon poly) {
+        polys.add(poly);
     }
 
     public void paintComponent(Graphics g) {
