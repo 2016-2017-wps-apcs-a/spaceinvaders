@@ -23,7 +23,7 @@ public class Laser {
 	}
 
 	public void move() {
-
+	    
 	}
 
 	public void hit() {

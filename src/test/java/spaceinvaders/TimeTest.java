@@ -1,8 +1,5 @@
-import java.util.Timer;
-/*
- * @author Chris Callahan
- * */
+package spaceinvaders;
 
 public class TimeTest {
-  
+
 }
