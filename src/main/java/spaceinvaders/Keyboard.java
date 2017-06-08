@@ -2,7 +2,6 @@
  * Keyboard.java
  *
  * @author Tyler Clift
- * @author Ricardo Gayle II
  */
 package spaceinvaders;
 
@@ -15,17 +14,17 @@ public class Keyboard implements KeyListener {
     //////////////////////////////// METHODS ///////////////////////////////
 
     /**
-     * Handle the key pressed event from the text field. Calls the direction
-     * methods from SpaceInvaders.
+     * Handle the key pressed event from the text field. Calls the move methods
+     * from SpaceShip.
      */
     public void keyPressed(KeyEvent e) {
         int id = e.getKeyCode();
         switch (id) {
         case KeyEvent.VK_LEFT:
-            SpaceInvaders.someMethod().turnLeft();
+            // SpaceShip.moveLeft();
             break;
         case KeyEvent.VK_RIGHT:
-            SpaceInvaders.someMethod().turnRight();
+            // SpaceShip.moveRight();
             break;
         default:
             break;
@@ -38,17 +37,17 @@ public class Keyboard implements KeyListener {
 
     /**
      * Handle the key typed event from the text field. Calls togglePause and
-     * newGame methods from Game.
+     * newGame methods from SpaceInvaders.
      */
     public void keyTyped(KeyEvent e) {
         int id = e.getKeyChar();
         switch (id) {
         case KeyEvent.VK_SPACE:
-            SpaceInvaders.togglePause();
+            // SpaceInvaders.togglePause();
             break;
         case KeyEvent.VK_R:
         case 'r':
-            SpaceInvaders.newGame();
+            // SpaceInvaders.newGame();
             break;
         default:
             break;
