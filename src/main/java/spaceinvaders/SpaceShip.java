@@ -9,7 +9,7 @@ import java.util.*;
 public class SpaceShip extends Sprite {
 
     public SpaceShip() {
-        super();
+        super(new Dimension(100, 100));
         add(new FilledPolygon(new Color(60, 10, 10), new int[] { 0, 100, 200, }, new int[] { 110, 10, 110, }));
         /*
          * blocks.add(new Block(Color.BLACK, 0, 0, 4080, 1420)); // draws

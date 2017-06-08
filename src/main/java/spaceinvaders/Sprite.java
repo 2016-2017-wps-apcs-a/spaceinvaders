@@ -12,31 +12,50 @@ import java.util.*;
  * @author David C. Petty
  */
 public class Sprite extends JComponent {
-
-    private Dimension size;
-    private Point location;
-
     /** The list of <code>FilledPolygons</code> that define the sprite. */
     private java.util.List<FilledPolygon> polys;
 
     public Sprite() {
         polys = new ArrayList<FilledPolygon>();
-        size = new Dimension(100, 100);
-        location = new Point();
     }
 
-    public void move(Point p) {
-        for (FilledPolygon poly : polys)
-            poly.translate((int) (p.getX() - location.getX()), (int)(p.getY() - location.getY()));
-        location = p;
+    public Sprite(Dimension size) {
+        this();
+        setPreferredSize(size);
     }
 
     public void add(FilledPolygon poly) {
         polys.add(poly);
     }
 
+    @Override
+    public void setSize(Dimension size) {
+        if (getSize().equals(new Dimension(0, 0)))
+            super.setSize(getPreferredSize());
+        double xFactor = size.getWidth() / getWidth();
+        double yFactor = size.getHeight() / getHeight();
+        for (FilledPolygon poly : polys) {
+            assert poly.xpoints.length == poly.ypoints.length : "invalid polygon";
+            for (int i = 0; i < poly.xpoints.length; i++) {
+                poly.xpoints[i] = (int) Math.round(poly.xpoints[i] * xFactor);
+                poly.ypoints[i] = (int) Math.round(poly.ypoints[i] * yFactor);
+            }
+        }
+        super.setSize(size);
+    }
+
+    @Override
+    public void setLocation(Point p) {
+        for (FilledPolygon poly : polys)
+            poly.translate((int)(p.getX() - getX()), (int)(p.getY() - getY()));
+        super.setLocation(p);
+    }
+
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (FilledPolygon poly : polys) { poly.draw(g); }
+        for (FilledPolygon poly : polys) {
+            poly.draw(g);
+        }
     }
 }
