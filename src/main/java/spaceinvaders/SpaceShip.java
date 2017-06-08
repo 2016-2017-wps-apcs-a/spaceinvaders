@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 
-// @Jacob Naroian
+// @Jacob Naroian 
 public class SpaceShip extends Sprite {
 
     public SpaceShip() {

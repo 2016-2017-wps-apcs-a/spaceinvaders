@@ -43,11 +43,11 @@ public class Keyboard implements KeyListener {
         int id = e.getKeyChar();
         switch (id) {
         case KeyEvent.VK_SPACE:
-            // SpaceInvaders.togglePause();
+            // GameLogic.togglePause();
             break;
         case KeyEvent.VK_R:
         case 'r':
-            // SpaceInvaders.newGame();
+            // GameLogic.newGame();
             break;
         default:
             break;
