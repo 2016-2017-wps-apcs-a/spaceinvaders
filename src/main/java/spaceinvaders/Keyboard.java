@@ -24,6 +24,9 @@ public class Keyboard implements KeyListener {
         case KeyEvent.VK_RIGHT:
             // SpaceShip.moveRight();
             break;
+        case KeyEvent.VK_SPACE:
+            // SpaceShip.shoot();
+            break;
         default:
             break;
         }
@@ -40,7 +43,8 @@ public class Keyboard implements KeyListener {
     public void keyTyped(KeyEvent e) {
         int id = e.getKeyChar();
         switch (id) {
-        case KeyEvent.VK_SPACE:
+        case KeyEvent.VK_P:
+        case 'p':
             // GameLogic.togglePause();
             break;
         case KeyEvent.VK_R:

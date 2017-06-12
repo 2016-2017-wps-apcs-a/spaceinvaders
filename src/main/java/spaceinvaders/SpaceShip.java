@@ -46,4 +46,11 @@ public class SpaceShip extends Sprite {
     public void moveRight() {
         // STUB
     }
+    
+    /**
+     * Shoots the laser.
+     */
+    public void shoot() {
+        // STUB
+    }
 }
