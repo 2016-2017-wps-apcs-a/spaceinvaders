@@ -44,14 +44,14 @@ public class Sprite extends JComponent {
         super.setSize(size);
     }
 
-    @Override
+    //@Override
     public void setLocation(Point p) {
         for (FilledPolygon poly : polys)
             poly.translate((int)(p.getX() - getX()), (int)(p.getY() - getY()));
         super.setLocation(p);
     }
 
-    @Override
+    //@Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         for (FilledPolygon poly : polys) {
