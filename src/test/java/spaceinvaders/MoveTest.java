@@ -1,4 +1,7 @@
 import javax.swing.JFrame;
+/*
+ * @author Chris Callahan
+ * */
 
 public class MoveTest {
     public static void main(String [] args){
