@@ -1,7 +1,7 @@
 /*
  * Keyboard.java
  *
- * @author Tyler Clift
+ * @author Tyler Clift, Ricardo Gayle Jr., Benny Liang, Tom Diamond
  */
 package spaceinvaders;
 
