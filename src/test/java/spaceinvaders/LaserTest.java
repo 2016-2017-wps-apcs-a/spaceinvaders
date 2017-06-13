@@ -1,8 +1,8 @@
 package spaceinvaders;
 
 /**
- * @author Chris Callahan
+ * @author Chris Callahan, Deniz Guler
  */
 public class LaserTest {
-  
+
 }
