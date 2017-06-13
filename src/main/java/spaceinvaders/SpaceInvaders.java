@@ -30,6 +30,8 @@ public class SpaceInvaders {
      */
     public static void main(String[] args) {
         System.out.println("# SpaceInvaders");
+        SoundFX sound = new SoundFX("sounds/some-days-you-just-can't-get-rid-of-a-bomb.mp3");
+        sound.play("sounds/some-days-you-just-can't-get-rid-of-a-bomb.mp3");
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
