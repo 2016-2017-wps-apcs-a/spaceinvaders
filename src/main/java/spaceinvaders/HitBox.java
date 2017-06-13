@@ -1,4 +1,5 @@
 package spaceinvaders;
+
 import java.awt.*;
 
 /**
@@ -6,34 +7,56 @@ import java.awt.*;
  * @author vsoltan
  * @author Chris Callahan
  */
-public class HitBox {
- private Point[] corners = new Point[4]; // from top left to bottom right
- private Point center = new Point();
- private double size; // from center to corner
+public class HitBox extends Rectangle {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Point[] corners = new Point[4]; // from top left to bottom right
+	private Point center = new Point();
+	private int xSize; // .5 of horizontal distance measured from center
+	private int ySize; // .5 vertical distance
 
- public HitBox(Point center, double size) {
-  this.size = size;
-  this.center = center;
-  corners[0] = new Point((int) (size - center.getX()), (int) (size + center.getY())); // top
-                   // left
-  corners[1] = new Point((int) (size + center.getX()), (int) (size + center.getY())); // top
-                   // right
-  corners[2] = new Point((int) (size - center.getX()), (int) (size - center.getY())); // bottom
-                   // left
-  corners[3] = new Point((int) (size + center.getX()), (int) (size - center.getY())); // bottom
-                   // right
- }
+	public HitBox(Point center, int x, int y) {
+		this.xSize = x;
+		this.ySize = y;
+		this.center = center;
+		corners[0] = new Point((int) (center.getX() - x), (int) (center.getY() - y)); // Botton
+																						// Left
+		corners[1] = new Point((int) (center.getX() - x), (int) (center.getY() + y)); // Top
+																						// Left
+		corners[2] = new Point((int) (center.getX() + x), (int) (center.getY() + y)); // Top
+																						// Right
+		corners[3] = new Point((int) (center.getX() + x), (int) (center.getY() - y)); // Bottom
+																						// Right
+	}
 
- public boolean isInBounds(HitBox other) {
-  return false;
- }
+	public Point getCenter() {
+		return this.center;
+	}
 
- public Point getCenter() {
-  return this.center;
- }
+	public int getXSize() {
+		return this.xSize;
+	}
 
- public double size() {
-  return this.size;
- }
+	public int getYSize() {
+		return this.ySize;
+	}
+
+	public int getArea() {
+		return 4 * xSize * ySize;
+	}
+
+	public Point[] getCorners() {
+		return this.corners;
+	}
+
+	public boolean isInBounds(HitBox other) {
+		Rectangle r1 = intersection(other);
+		if (r1.x * r1.y == .05 * other.getArea()) {
+			return true;
+		}
+		return false;
+	}
 
 }

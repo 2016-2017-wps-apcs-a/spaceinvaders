@@ -19,13 +19,13 @@ public class Keyboard implements KeyListener {
         int id = e.getKeyCode();
         switch (id) {
         case KeyEvent.VK_LEFT:
-            // SpaceShip.moveLeft();
+            Move.left();
             break;
         case KeyEvent.VK_RIGHT:
-            // SpaceShip.moveRight();
+            Move.right();
             break;
         case KeyEvent.VK_SPACE:
-            // SpaceShip.shoot();
+            Move.shoot();
             break;
         default:
             break;
