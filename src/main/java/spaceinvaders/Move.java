@@ -8,78 +8,84 @@ import java.awt.geom.*;
  * 
  * */
 
-public class Move extends JPanel implements ActionListener, KeyListener { 
+public class Move extends JPanel implements ActionListener, KeyListener {
     Timer t = new Timer(5, this);
     double x = 600, y = 700, velx = 0, vely = 0;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    int h = (int)(screenSize.getHeight());
-    int w = (int)(screenSize.getWidth());
-    
-    public Move(){
+    int h = (int) (screenSize.getHeight());
+    int w = (int) (screenSize.getWidth());
+
+    public Move() {
         t.start();
         addKeyListener(this);
-        setFocusable( true );
+        setFocusable(true);
         setFocusTraversalKeysEnabled(false);
     }
-    
-    public void paintComponent(Graphics g){
+
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        g2.fill(new Ellipse2D.Double(x, y, w /20, w/20));
+        g2.fill(new Ellipse2D.Double(x, y, w / 20, w / 20));
     }
-    public void actionPerformed(ActionEvent e){
+
+    public void actionPerformed(ActionEvent e) {
         repaint();
         x += velx;
         y += vely;
     }
-    public void down() {
+
+    public static void down() {
         vely = 2;
-    
+
     }
-        public void up() {
+
+    public static void up() {
         vely = -2;
-    
+
     }
-        public void right() {
+
+    public static void right() {
         velx = 2;
-    
+
     }
-        public void left() {
+
+    public static void left() {
         velx = -2;
-    
+
     }
-        public void shoot()  {
-            
-            
-            
-        }
-        public void stop() {
-            velx = 0;
-            vely = 0;
-        }
-        
-    public void keyPressed(KeyEvent e){
+
+    public static void shoot() {
+
+    }
+
+    public void stop() {
+        velx = 0;
+        vely = 0;
+    }
+
+    public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
-        switch(code){
-            case KeyEvent.VK_UP: 
-                up();
-                break;
-            case KeyEvent.VK_DOWN:
-                down();
-                break;
-            case KeyEvent.VK_RIGHT:
-                 right();
-                 break;
-            case KeyEvent.VK_LEFT:
+        switch (code) {
+        case KeyEvent.VK_UP:
+            up();
+            break;
+        case KeyEvent.VK_DOWN:
+            down();
+            break;
+        case KeyEvent.VK_RIGHT:
+            right();
+            break;
+        case KeyEvent.VK_LEFT:
             left();
-            break;        
+            break;
         }
     }
 
-    public void keyTyped(KeyEvent e){}
+    public void keyTyped(KeyEvent e) {
+    }
+
     public void keyReleased(KeyEvent e) {
         stop();
     }
-    
-    
+
 }
