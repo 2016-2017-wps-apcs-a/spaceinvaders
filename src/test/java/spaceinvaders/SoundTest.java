@@ -1,7 +1,7 @@
 /*
- * SpaceInvadersTest.java
+ * SoundTest.java
  */
- 
+package spaceinvaders;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -21,14 +21,14 @@ public class SoundTest extends TestCase {
     public SoundTest(String testName) {
         super(testName);
     }
-
+    
     /**
      * @return the suite of tests being tested
      */
     public static Test suite() {
         return new TestSuite(SoundTest.class);
     }
-
+    
     /**
      * Rigourous Test :-)
      */

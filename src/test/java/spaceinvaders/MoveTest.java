@@ -1,11 +1,15 @@
+/*
+ * MoveTest.java
+ */
+package spaceinvaders;
+
 import javax.swing.JFrame;
 /*
  * @author Chris Callahan
- * */
+ */
 
 public class MoveTest {
     public static void main(String [] args){
-        
         JFrame f = new JFrame();
         Move s = new Move();
         f.add(s);

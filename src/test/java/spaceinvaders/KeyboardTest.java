@@ -1,7 +1,5 @@
 /*
  * KeyboardTest.java
- *
- * @author Tyler Clift, Ricardo Gayle Jr., Benny Liang, Tom Diamond
  */
 
 package spaceinvaders;
@@ -10,6 +8,11 @@ import org.junit.*;
 
 /**
  * Unit test for {@link Keyboard}.
+ *
+ * @author Tyler Clift
+ * @author Tom Diamond
+ * @author Ricardo Gayle Jr.
+ * @author Benny Liang
  */
 public class KeyboardTest {
     /**

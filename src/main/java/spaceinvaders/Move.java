@@ -1,3 +1,5 @@
+package spaceinvaders;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -5,15 +7,13 @@ import java.awt.geom.*;
 
 /*
  * @author Chris Callahan
- * 
- * */
-
+ */
 public class Move extends JPanel implements ActionListener, KeyListener {
-    Timer t = new Timer(5, this);
-    double x = 600, y = 700, velx = 0, vely = 0;
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    int h = (int) (screenSize.getHeight());
-    int w = (int) (screenSize.getWidth());
+    private Timer t = new Timer(5, this);
+    private static double x = 600, y = 700, velx = 0, vely = 0;
+    private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private static int h = (int) (screenSize.getHeight());
+    private static int w = (int) (screenSize.getWidth());
 
     public Move() {
         t.start();

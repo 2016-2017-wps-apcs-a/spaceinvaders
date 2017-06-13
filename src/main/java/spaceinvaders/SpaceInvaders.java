@@ -11,20 +11,30 @@ import javax.swing.*;
  * @author David C. Petty
  */
 public class SpaceInvaders {
+    /** GUI for <code>SpaceInvaders</code> game. */
+    private static GUI gui;
+
     /**
-     * The SpaceInvaders main method that initializes the entire game.
+     * <code>SpaceInvaders</code> graphical user interface.
      *
-     * @param args
-     *            command-line argument array
+     * @return graphical user interface for <code>SpaceInvaders</code> game.
+     */
+    public static GUI getGUI() {
+        return gui;
+    }
+
+    /**
+     * SpaceInvaders main method that initializes the entire game.
+     *
+     * @param args command-line argument array
      */
     public static void main(String[] args) {
         System.out.println("# SpaceInvaders");
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new GUI();
+                gui = new GUI();
             }
         });
     }
-
 }
