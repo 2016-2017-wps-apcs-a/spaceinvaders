@@ -76,6 +76,28 @@ public class Sprite extends JComponent {
         super.setLocation(p);
     }
 
+    public void translate(int dx, int dy) {
+        for (FilledPolygon poly : polys)
+            poly.translate(dx, dy);
+        super.setLocation(new Point(getX()+ dx, getY() + dy));
+    }
+
+    public void moveUp(int d) {
+        translate(0, -d);
+    }
+
+    public void moveDown(int d) {
+        translate(0, d);
+    }
+
+    public void moveLeft(int d) {
+        translate(-d, 0);
+    }
+
+    public void moveRight(int d) {
+        translate(d, 0);
+    }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

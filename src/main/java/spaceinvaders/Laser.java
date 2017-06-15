@@ -21,4 +21,9 @@ public class Laser extends Sprite{
         this.add(new FilledPolygon(Color.BLACK, Color.WHITE, xs, ys));
     }
 
+    private void move(){
+
+    }
+
+
 }
