@@ -13,26 +13,22 @@ public class HitBox extends Rectangle {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Point[] corners = new Point[4]; // from top left to bottom right
-	private Point center = new Point();
-	private int xSize; // .5 of horizontal distance measured from center
-	private int ySize; // .5 vertical distance
+	private Point leftTop = new Point();
+	private int xSize; // horizontal distance measured from the top left
+	private int ySize; // vertical distance
 
-	public HitBox(Point center, int x, int y) {
+	public HitBox(Point leftTop, int x, int y) {
 		this.xSize = x;
 		this.ySize = y;
-		this.center = center;
-		corners[0] = new Point((int) (center.getX() - x), (int) (center.getY() - y)); // Botton
-																						// Left
-		corners[1] = new Point((int) (center.getX() - x), (int) (center.getY() + y)); // Top
-																						// Left
-		corners[2] = new Point((int) (center.getX() + x), (int) (center.getY() + y)); // Top
-																						// Right
-		corners[3] = new Point((int) (center.getX() + x), (int) (center.getY() - y)); // Bottom
-																						// Right
+		this.leftTop = leftTop;
+		corners[0] = new Point((int) (leftTop.getX()), (int) (leftTop.getY() - y)); // BottonLeft
+		corners[1] = leftTop; // TopLeft
+		corners[2] = new Point((int) (leftTop.getX() + x), (int) (leftTop.getY())); // TopRight
+		corners[3] = new Point((int) (leftTop.getX() + x), (int) (leftTop.getY() - y)); // BottomRight
 	}
 
-	public Point getCenter() {
-		return this.center;
+	public Point getLeftTop() {
+		return this.leftTop;
 	}
 
 	public int getXSize() {
@@ -44,7 +40,7 @@ public class HitBox extends Rectangle {
 	}
 
 	public int getArea() {
-		return 4 * xSize * ySize;
+		return xSize * ySize;
 	}
 
 	public Point[] getCorners() {
