@@ -1,8 +1,7 @@
-/**
- *
- * @Jennifer Kim, Brandon Zhang
- * @6/1/17
+/*
+ * SoundFX.java
  */
+package spaceinvaders; 
 
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +12,12 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 
+/**
+ * Describe the SoundFX class...
+ *
+ * @author Jennifer Kim
+ * @author Brandon Zhang
+ */
 public class SoundFX
 {
   private SourceDataLine line = null;

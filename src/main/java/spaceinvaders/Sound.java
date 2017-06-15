@@ -1,17 +1,22 @@
-/**
- * Adds sound effects to the overall game
- * 
- * @Jennifer Kim, Brandon Zhang
- * @6/1/17
+/*
+ * Sound.java
  */
+package spaceinvaders;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * Describe the Sound class...
+ *
+ * @author Jennifer Kim
+ * @author Brandon Zhang
+ */
 public class Sound extends JFrame
      implements ActionListener
 {
+  /** Spaceship sound. */
   private SoundFX spaceship;
   private int time;
 
