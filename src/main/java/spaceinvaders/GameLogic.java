@@ -8,13 +8,7 @@ public class GameLogic {
      * Resets the game.
      */
     public static void newGame() {
-        System.out.println("# SpaceInvaders");
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                gui = new GUI();
-            }
-        });
+       //STUB
     }
 
     /**
