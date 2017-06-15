@@ -64,21 +64,7 @@ public class Move extends JPanel implements ActionListener, KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
-        int code = e.getKeyCode();
-        switch (code) {
-        case KeyEvent.VK_UP:
-            up();
-            break;
-        case KeyEvent.VK_DOWN:
-            down();
-            break;
-        case KeyEvent.VK_RIGHT:
-            right();
-            break;
-        case KeyEvent.VK_LEFT:
-            left();
-            break;
-        }
+
     }
 
     public void keyTyped(KeyEvent e) {
