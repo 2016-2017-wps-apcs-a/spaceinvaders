@@ -27,6 +27,18 @@ public class GUI extends JPanel {
         System.out.println(ship.getPreferredSize() + " " + ship.getSize());
         c.add(ship);
 
+        Sprite morePoints = new MorePoints();
+        System.out.println(morePoints.getPreferredSize() + " " + morePoints.getSize());
+        morePoints.setLocation(new Point(200, 200));        
+        System.out.println(morePoints.getPreferredSize() + " " + morePoints.getSize());
+        c.add(morePoints);
+        
+         Sprite aLaser = new AlienLaser();
+        System.out.println(aLaser.getPreferredSize() + " " + aLaser.getSize());
+        aLaser.setLocation(new Point(100, 100));        
+        System.out.println(aLaser.getPreferredSize() + " " + aLaser.getSize());
+        c.add(aLaser);
+
         frame.pack();
         frame.setVisible(true);
     }
