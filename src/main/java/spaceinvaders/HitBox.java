@@ -1,4 +1,4 @@
-package spaceinvaders;
+package src.main.java.spaceinvaders;
 
 import java.awt.*;
 

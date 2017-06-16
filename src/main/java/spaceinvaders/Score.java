@@ -1,4 +1,4 @@
-package spaceinvaders;
+package src.main.java.spaceinvaders;
 
 /**
  * Score is the class that handles scoring
