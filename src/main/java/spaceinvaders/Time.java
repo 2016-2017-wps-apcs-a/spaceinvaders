@@ -9,14 +9,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Time implements ActionListener {
-    private final int TICK_RATE = 20; // 1 s = 20 tick
-    private  long currentTick;
+    private final int TICK_RATE = 20; // 20ms = 1 tick
+    private long currentTick;
+    private Timer clock;
     public Time() {
-        Timer timer = new Timer(TICK_RATE, this);
+        currentTick = 0;
+        clock = new Timer(TICK_RATE, this);
+        clock.setInitialDelay(0);
+        clock.start();
     }
-    // action performed every tick with a delay of 1 tick.
+    // action performed every tick.
     public void actionPerformed(ActionEvent e) {
         currentTick++;
+        //System.out.print("*" + getCurrentTick());
     }
 
     public long getCurrentTick(){
