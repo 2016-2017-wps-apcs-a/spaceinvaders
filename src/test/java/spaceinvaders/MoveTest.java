@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-=======
+
 /*
  * MoveTest.java
  */
->>>>>>> c2e625ffd9ca20c8dd6b91adfa19f327b0b37ee5
+
 package spaceinvaders;
 
 import javax.swing.JFrame;
