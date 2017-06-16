@@ -4,6 +4,7 @@
 package spaceinvaders;
 
 import javax.swing.*;
+import org.apache.logging.log4j.*;
 
 /**
  * SpaceInvaders is the main class for the SpaceInvaders game.
@@ -11,6 +12,13 @@ import javax.swing.*;
  * @author David C. Petty
  */
 public class SpaceInvaders {
+    /** LONG name of this project. */
+    public static final String LONG = "SpaceInvaders";
+    /** SHORT name of this project. */
+    public static final String SHORT = "SI";
+    /** log4j logger. */
+    private static Logger logger = LogManager.getLogger(SHORT);
+
     /** GUI for <code>SpaceInvaders</code> game. */
     private static GUI gui;
 
@@ -29,7 +37,7 @@ public class SpaceInvaders {
      * @param args command-line argument array
      */
     public static void main(String[] args) {
-        System.out.println("# SpaceInvaders");
+        logger.info("# SpaceInvaders");
         SoundFX sound = new SoundFX("sounds/some-days-you-just-can't-get-rid-of-a-bomb.mp3");
         sound.play("sounds/some-days-you-just-can't-get-rid-of-a-bomb.mp3");
         SwingUtilities.invokeLater(new Runnable() {
