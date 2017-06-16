@@ -10,11 +10,6 @@ import java.awt.event.*;
 public class Keyboard implements KeyListener {
     private SpaceShip ship;
 
-
-    public Keyboard(SpaceShip sprite) {
-        this.ship = sprite;
-    }
-
     //////////////////////////////// METHODS ///////////////////////////////
 
     /**

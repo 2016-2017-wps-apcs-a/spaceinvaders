@@ -8,7 +8,8 @@ public class GUI extends JPanel {
      * RED_FLAG: where did this come from?!
      */
     private static final long serialVersionUID = 1L;
-    private static Sprite aLaser, ship, morePoints;
+    private static Sprite aLaser, morePoints;
+    private static SpaceShip ship;
     private static JFrame frame;
 
     private Time time = new Time();
@@ -39,7 +40,7 @@ public class GUI extends JPanel {
         System.out.println(morePoints.getPreferredSize() + " " + morePoints.getSize());
         frame.add(morePoints);
         frame.pack();
-        
+
         aLaser = new AlienLaser();
         System.out.println(aLaser.getPreferredSize() + " " + aLaser.getSize());
         aLaser.setLocation(new Point(100, 100));        
@@ -51,8 +52,8 @@ public class GUI extends JPanel {
     }
 
     public static void move() {
-    //    aLaser.moveDown(2);
-    //    frame.repaint();
+        aLaser.moveDown(2);
+        frame.repaint();
     }
 
     @Override
