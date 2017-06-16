@@ -1,7 +1,7 @@
 /*
  * Sound.java
  */
-package src.main.java.spaceinvaders;
+package spaceinvaders;
 
 import java.awt.*;
 import java.awt.event.*;

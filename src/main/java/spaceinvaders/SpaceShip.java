@@ -1,11 +1,13 @@
-package src.main.java.spaceinvaders;
+package spaceinvaders;
 
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 
-// @Jacob Naroian 
+/**
+ * @author Jacob Naroian, Deniz Guler
+ */
 public class SpaceShip extends Sprite {
 
     public SpaceShip() {  //creates space ship
@@ -54,14 +56,14 @@ public class SpaceShip extends Sprite {
      * Moves the ship left.
      */
     public void moveLeft() {
-        // STUB
+        this.moveLeft(1);
     }
 
     /**
      * Moves the ship right.
      */
     public void moveRight() {
-        // STUB
+        this.moveRight(1);
     }
     
     /**

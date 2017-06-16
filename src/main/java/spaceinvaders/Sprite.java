@@ -1,7 +1,7 @@
 /*
  * Sprite.java
  */
-package src.main.java.spaceinvaders;
+package spaceinvaders;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

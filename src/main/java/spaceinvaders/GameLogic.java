@@ -1,4 +1,4 @@
-package src.main.java.spaceinvaders;
+package spaceinvaders;
 
 import javax.swing.SwingUtilities;
 

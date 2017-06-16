@@ -1,7 +1,7 @@
 /*
  * SpaceInvaders.java
  */
-package src.main.java.spaceinvaders;
+package spaceinvaders;
 
 import java.util.logging.LogManager;
 import java.util.logging.Logger;

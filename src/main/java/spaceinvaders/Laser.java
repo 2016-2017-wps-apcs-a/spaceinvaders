@@ -1,4 +1,4 @@
-package src.main.java.spaceinvaders;
+package spaceinvaders;
 
 import java.awt.*;
 
@@ -12,18 +12,18 @@ import java.awt.*;
  *        component and its own hit box.
  * 
  */
-public class Laser extends Sprite {
-	private int[] xs = { 2, 4, 6, 6, 4, 2, 0, 0, };
-	private int[] ys = { 0, 0, 2, 8, 10, 10, 8, 2, };
+public class Laser extends Sprite{
+    private int[] xs = {2, 4, 6, 6,  4,  2, 0, 0,};
+    private int[] ys = {0, 0, 2, 8, 10, 10, 8, 2,};
+    //private HitBox hitBox = new HitBox();
+    public Laser(){
+        super(new Dimension(5, 10));
+        this.add(new FilledPolygon(Color.BLACK, Color.WHITE, xs, ys));
+    }
 
-	// private HitBox hitBox = new HitBox();
-	public Laser() {
-		super(new Dimension(5, 10));
-		this.add(new FilledPolygon(Color.BLACK, Color.WHITE, xs, ys));
-	}
+    private void move(){
+        this.moveUp(2);
+    }
 
-	private void move() {
-
-	}
 
 }

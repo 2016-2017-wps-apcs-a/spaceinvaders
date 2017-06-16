@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Time implements ActionListener {
-    private final int TICK_RATE = 20; // 20ms = 1 tick
+    private final int TICK_RATE = 10; // 20ms = 1 tick
     private long currentTick;
     private Timer clock;
     public Time() {
@@ -21,6 +21,8 @@ public class Time implements ActionListener {
     // action performed every tick.
     public void actionPerformed(ActionEvent e) {
         currentTick++;
+        if (currentTick % 1 == 0)
+            GUI.move();
         //System.out.print("*" + getCurrentTick());
     }
 
