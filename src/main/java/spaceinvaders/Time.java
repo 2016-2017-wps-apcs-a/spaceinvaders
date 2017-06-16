@@ -29,5 +29,4 @@ public class Time implements ActionListener {
     public long getCurrentTick(){
         return currentTick;
     }
-
 }
