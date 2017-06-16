@@ -18,10 +18,10 @@ public class SpaceInvaders {
     public static final String SHORT = "SI";
     /** log4j logger. */
     private static Logger logger = LogManager.getLogger(SHORT);
-
+    
     /** GUI for <code>SpaceInvaders</code> game. */
     private static GUI gui;
-
+    
     /**
      * <code>SpaceInvaders</code> graphical user interface.
      *
@@ -30,7 +30,6 @@ public class SpaceInvaders {
     public static GUI getGUI() {
         return gui;
     }
-
     /**
      * SpaceInvaders main method that initializes the entire game.
      *

@@ -1,6 +1,8 @@
+
 /*
  * MoveTest.java
  */
+
 package spaceinvaders;
 
 import javax.swing.JFrame;
@@ -13,8 +15,10 @@ public class MoveTest {
         JFrame f = new JFrame();
         Move s = new Move();
         f.add(s);
+        f.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        f.setUndecorated(true);
         f.setVisible( true );
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setSize(1280,800);
+        
     }
 }
