@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * Sprite is a JComponent base class for all on-screen items.
  *
- * @author David C. Petty
+ * @author David C. Petty, Deniz Guler, Chris Callahan
  */
 public class Sprite extends JComponent {
     /** Preferred size of this <code>Sprite</code>. */
