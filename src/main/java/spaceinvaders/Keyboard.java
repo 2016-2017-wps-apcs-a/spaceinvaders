@@ -8,8 +8,6 @@ package spaceinvaders;
 import java.awt.event.*;
 
 public class Keyboard implements KeyListener {
-    private SpaceShip ship;
-
     //////////////////////////////// METHODS ///////////////////////////////
 
     /**
@@ -20,13 +18,13 @@ public class Keyboard implements KeyListener {
         int id = e.getKeyCode();
         switch (id) {
         case KeyEvent.VK_LEFT:
-            ship.moveLeft();
+            GameLogic.getShip().moveLeft();
             break;
         case KeyEvent.VK_RIGHT:
-            ship.moveRight();
+            GameLogic.getShip().moveRight();
             break;
         case KeyEvent.VK_SPACE:
-            ship.shoot();
+            GameLogic.getShip().shoot();
             break;
         default:
             break;
