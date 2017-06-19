@@ -1,12 +1,12 @@
 package spaceinvaders;
 
 /**
- * Score is the class that handles scoring
+ * Score handles scoring for {@link SpaceInvaders}.
  *
- * @author Chris Callahan, Deniz Guler, Valeriy Soltan
+ * @author 2016-2017 APCS A-Block
+ * @author Chris Callahan
+ * @author Deniz Guler
+ * @author Valeriy Soltan
  */
-
 public class Score {
-  
-
 }

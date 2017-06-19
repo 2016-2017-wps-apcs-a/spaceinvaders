@@ -18,15 +18,15 @@ import static javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED;
  */
 public class SoundFX
 {
-    private String fileName;
+    private String filePath;
     
-    public SoundFX(String fileName)
+    public SoundFX(String filePath)
     {
-        this.fileName = fileName;
+        this.filePath = filePath;
     }
 
     // https://odoepner.wordpress.com/2013/07/19/play-mp3-or-ogg-using-javax-sound-sampled-mp3spi-vorbisspi/
-    public void play(String filePath) {
+    public void play() {
         ClassLoader classLoader = getClass().getClassLoader();
         final File file = new File(classLoader.getResource(filePath).getFile());
         

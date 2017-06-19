@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * SpaceInvaders is the main class for the SpaceInvaders game.
  *
- * @author David C. Petty
+ * @author 2016-2017 APCS A-Block
  */
 public class SpaceInvaders {
     /** LONG name of this project. */
@@ -39,8 +39,9 @@ public class SpaceInvaders {
      */
     public static void main(String[] args) {
         logger.info("# SpaceInvaders");
+        logger.info(Utilities.getResourcePaths("/sounds"));
         SoundFX sound = new SoundFX("sounds/some-days-you-just-can't-get-rid-of-a-bomb.mp3");
-        sound.play("sounds/some-days-you-just-can't-get-rid-of-a-bomb.mp3");
+        sound.play();
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
