@@ -23,7 +23,7 @@ public class Time implements ActionListener {
         currentTick++;
         if (currentTick % 1 == 0)
             GUI.move();
-        GameLogic.getShip()
+        GameLogic.getShip();
         //System.out.print("*" + getCurrentTick());
     }
 
