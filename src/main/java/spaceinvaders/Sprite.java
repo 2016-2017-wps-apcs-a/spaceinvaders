@@ -59,8 +59,10 @@ public class Sprite extends JComponent {
 				poly.xpoints[i] = (int) Math.round((poly.xpoints[i] - x) * xScale) + x;
 				poly.ypoints[i] = (int) Math.round((poly.ypoints[i] - y) * yScale) + y;
 			}
+
 		}
 		size.setSize(width, height);
+		this.getHitbox().setSize(width / SCALE * 4,height);
 	}
 
 	@Override
@@ -85,8 +87,8 @@ public class Sprite extends JComponent {
 		for (FilledPolygon poly : polys)
 			poly.translate((int) (p.getX() - getX()), (int) (p.getY() - getY()));
 		super.setLocation(p);
-		Point locationHitBox = new Point((int) (p.x + 2 * size.getWidth() / SCALE), p.y);
-		Dimension dimHitBox = new Dimension((int) size.getWidth() / SCALE, (int) size.getHeight());
+		Point locationHitBox = new Point((int) (p.x + 2 * preferredSize.getWidth() / SCALE), p.y);
+		Dimension dimHitBox = new Dimension((int) preferredSize.getWidth() / SCALE, (int) preferredSize.getHeight());
 		hitbox.setBounds(new Rectangle(dimHitBox));
 		hitbox.setLocation((int) locationHitBox.getX(), (int) locationHitBox.getY());
 
@@ -113,6 +115,10 @@ public class Sprite extends JComponent {
 
 	public void moveRight(int d) {
 		translate(d, 0);
+	}
+
+	public Rectangle getHitbox(){
+		return this.hitbox;
 	}
 
 	@Override

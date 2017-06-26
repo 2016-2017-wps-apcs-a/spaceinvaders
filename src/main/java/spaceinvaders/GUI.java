@@ -33,6 +33,7 @@ public class GUI extends JPanel {
         System.out.println(ship.getPreferredSize() + " " + ship.getSize());
         frame.add(ship);
         frame.pack();
+        System.out.println("HELLO: this is the ship's hitbox" + ship.getHitbox());
 
         morePoints = new MorePoints();
         System.out.println(morePoints.getPreferredSize() + " " + morePoints.getSize());
@@ -55,6 +56,7 @@ public class GUI extends JPanel {
 
         frame.pack();
         frame.setVisible(true);
+        System.out.println(alienOne.getHitbox());
 
     }
 
