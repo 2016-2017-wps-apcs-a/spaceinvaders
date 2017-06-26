@@ -14,41 +14,41 @@ import org.apache.logging.log4j.Logger;
  * @author 2016-2017 APCS A-Block
  */
 public class SpaceInvaders {
-	/** LONG name of this project. */
-	public static final String LONG = "SpaceInvaders";
-	/** SHORT name of this project. */
-	public static final String SHORT = "SI";
-	/** log4j logger. */
-	private static Logger logger = LogManager.getLogger(SHORT);
-
-	/** GUI for <code>SpaceInvaders</code> game. */
-	private static GUI gui;
-
-	/**
-	 * <code>SpaceInvaders</code> graphical user interface.
-	 *
-	 * @return graphical user interface for <code>SpaceInvaders</code> game.
-	 */
-	public static GUI getGUI() {
-		return gui;
-	}
-
-	/**
-	 * SpaceInvaders main method that initializes the entire game.
-	 *
-	 * @param args
-	 *            command-line argument array
-	 */
-	public static void main(String[] args) {
-		logger.info("# SpaceInvaders");
-		logger.info(Utilities.getResourcePaths("/sounds"));
-		SoundFX sound = new SoundFX("sounds/some-days-you-just-can't-get-rid-of-a-bomb.mp3");
-		sound.play();
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				gui = new GUI();
-			}
-		});
-	}
+    /** LONG name of this project. */
+    public static final String LONG = "SpaceInvaders";
+    /** SHORT name of this project. */
+    public static final String SHORT = "SI";
+    /** log4j logger. */
+    private static Logger logger = LogManager.getLogger(SHORT);
+    
+    /** GUI for <code>SpaceInvaders</code> game. */
+    private static GUI gui;
+    
+    /**
+     * <code>SpaceInvaders</code> graphical user interface.
+     *
+     * @return graphical user interface for <code>SpaceInvaders</code> game.
+     */
+    public static GUI getGUI() {
+        return gui;
+    }
+    
+    /**
+     * SpaceInvaders main method that initializes the entire game.
+     *
+     * @param args
+     *            command-line argument array
+     */
+    public static void main(String[] args) {
+        logger.info("# SpaceInvaders");
+        logger.info(Utilities.getResourcePaths("/sounds"));
+        //SoundFX sound = new SoundFX("sounds/some-days-you-just-can't-get-rid-of-a-bomb.mp3");
+        //sound.play();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                gui = new GUI();
+            }
+        });
+    }
 }
