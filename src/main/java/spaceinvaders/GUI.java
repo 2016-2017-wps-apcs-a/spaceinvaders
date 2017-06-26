@@ -8,7 +8,7 @@ public class GUI extends JPanel {
      * RED_FLAG: where did this come from?!
      */
     private static final long serialVersionUID = 1L;
-    private static Sprite aLaser, morePoints;
+    private static Sprite aLaser, morePoints, alienOne;
     private static SpaceShip ship;
     private static JFrame frame;
 
@@ -47,8 +47,15 @@ public class GUI extends JPanel {
         System.out.println(aLaser.getPreferredSize() + " " + aLaser.getSize());
         frame.add(aLaser);
 
+        alienOne = new Alien3();
+        System.out.println(alienOne.getPreferredSize() + " " + alienOne.getSize());
+        alienOne.setLocation(new Point(200, 100));
+        System.out.println(alienOne.getPreferredSize() + " " + alienOne.getSize());
+        frame.add(alienOne);
+
         frame.pack();
         frame.setVisible(true);
+
     }
 
     //method for testing movement
