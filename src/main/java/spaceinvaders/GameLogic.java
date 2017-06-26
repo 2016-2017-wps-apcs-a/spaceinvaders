@@ -11,6 +11,9 @@ public class GameLogic {
     private static ArrayList<SpaceShip> ship;  //ship object
     private static ArrayList<ArrayList<Sprite>> aliens = new ArrayList<>();  //aliens
     private static GUI gui;
+
+
+
     /**
      * Resets the game.
      */

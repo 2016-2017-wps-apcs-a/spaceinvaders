@@ -13,7 +13,11 @@ import java.util.*;
  *
  * @author David C. Petty, Deniz Guler, Chris Callahan, Valeriy Soltan
  */
+
 public class Sprite extends JComponent {
+
+
+
 	/** Preferred size of this <code>Sprite</code>. */
 	private Dimension preferredSize;
 	/** Current size of this <code>Sprite</code>. */
@@ -26,9 +30,9 @@ public class Sprite extends JComponent {
 	public Sprite() {
 		polys = new ArrayList<FilledPolygon>();
 		size = preferredSize = new Dimension(100, 100); // default size
-		// System.out.println(SwingUtilities.getRoot(SpaceInvaders.getGUI()));
+		//System.out.println(SwingUtilities.getRoot(SpaceInvaders.getGUI()));
 
-		// creates hitbox frame
+		//creates hitbox frame
 
 		// System.out.println(SpaceInvaders.getGUI().getPreferredSize());
 	}
