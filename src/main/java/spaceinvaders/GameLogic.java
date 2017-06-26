@@ -1,12 +1,14 @@
 package spaceinvaders;
 
+import java.util.*;
+
 /**
  * Main Game Logic Class
  *
  * @author Deniz Guler
  */
 public class GameLogic {
-    private static SpaceShip ship;  //ship object
+    private static ArrayList<SpaceShip> ship;  //ship object
     private static GUI gui;
     /**
      * Resets the game.
@@ -15,8 +17,17 @@ public class GameLogic {
         // STUB
     }
 
+    /**
+     * Returns the current SpaceShip
+     *
+     * @return the current Spaceship
+     */
     public static SpaceShip getShip(){
-        return ship;
+        return ship.get(0);
+    }
+
+    public int getLives(){
+        return ship.size();
     }
 
     public static GUI getGui(){

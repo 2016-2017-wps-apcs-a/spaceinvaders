@@ -21,9 +21,9 @@ public class Time implements ActionListener {
     // action performed every tick.
     public void actionPerformed(ActionEvent e) {
         currentTick++;
-        if (currentTick % 1 == 0)
-            GUI.move();
-        GameLogic.getShip();
+        //if (currentTick % 1 == 0)
+        //    GUI.move();
+        //GameLogic.getShip().moveDown(2);
         //System.out.print("*" + getCurrentTick());
     }
 

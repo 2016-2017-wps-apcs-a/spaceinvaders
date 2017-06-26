@@ -51,8 +51,15 @@ public class GUI extends JPanel {
         frame.setVisible(true);
     }
 
+    //method for testing movement
     public static void move() {
         aLaser.moveDown(2);
+        frame.repaint();
+    }
+
+    public static void add(Sprite sprite) {
+        frame.add(sprite);
+        frame.pack();
         frame.repaint();
     }
 

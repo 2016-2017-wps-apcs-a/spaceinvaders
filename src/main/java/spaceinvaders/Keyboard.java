@@ -9,7 +9,7 @@ import java.awt.event.*;
 
 public class Keyboard implements KeyListener {
     //////////////////////////////// METHODS ///////////////////////////////
-    
+
     /**
      * Handle the key pressed event from the text field. Calls the move methods
      * from SpaceShip.
@@ -35,5 +35,23 @@ public class Keyboard implements KeyListener {
     public void keyReleased(KeyEvent e) {
     }
 
-    
+    /**
+     * Handle the key typed event from the text field. Calls togglePause and
+     * newGame methods from SpaceInvaders.
+     */
+    public void keyTyped(KeyEvent e) {
+        int id = e.getKeyChar();
+        switch (id) {
+        case KeyEvent.VK_P:
+        case 'p':
+             GameLogic.togglePause();
+            break;
+        case KeyEvent.VK_R:
+        case 'r':
+             GameLogic.newGame();
+            break;
+        default:
+            break;
+        }
+    }
 }
