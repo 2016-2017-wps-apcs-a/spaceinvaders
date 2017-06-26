@@ -10,7 +10,8 @@ public class GUI extends JPanel {
     private static final long serialVersionUID = 1L;
     private static Sprite aLaser, morePoints, alienOne;
     private static SpaceShip ship;
-    private static JFrame frame;
+    private JFrame frame;
+    private int Width, Height;
 
     private Time time = new Time();
 
@@ -24,6 +25,9 @@ public class GUI extends JPanel {
         c.setPreferredSize(new Dimension(500, 600));
         c.add(this);
         System.out.println(c.getPreferredSize());
+
+        Width = c.getWidth();
+        Height = c.getHeight();
 
         // RED_FLAG: test code for Sprite...
         ship = new SpaceShip();
@@ -48,7 +52,7 @@ public class GUI extends JPanel {
         System.out.println(aLaser.getPreferredSize() + " " + aLaser.getSize());
         frame.add(aLaser);
 
-        alienOne = new Alien3();
+        alienOne = new Alien3(new Dimension(100, 100));
         System.out.println(alienOne.getPreferredSize() + " " + alienOne.getSize());
         alienOne.setLocation(new Point(200, 100));
         System.out.println(alienOne.getPreferredSize() + " " + alienOne.getSize());
@@ -61,15 +65,24 @@ public class GUI extends JPanel {
     }
 
     //method for testing movement
-    public static void move() {
+    public void move() {
         aLaser.moveDown(2);
         frame.repaint();
     }
 
-    public static void add(Sprite sprite) {
+    public void add(Sprite sprite) {
         frame.add(sprite);
         frame.pack();
         frame.repaint();
+        frame.setVisible(true);
+    }
+
+    public int getWidth() {
+        return Width;
+    }
+
+    public int getHeight() {
+        return Height;
     }
 
     @Override

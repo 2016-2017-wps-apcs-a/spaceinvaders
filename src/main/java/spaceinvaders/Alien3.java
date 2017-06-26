@@ -8,8 +8,8 @@ import java.util.*;
 // @Noah Criss
 public class Alien3 extends Sprite {
 
-    public Alien3() {
-        super(new Dimension(100, 100));
+    public Alien3(Dimension dimension) {
+        super(dimension);
         add(new FilledPolygon(new Color(0, 255, 0), new int[] { 50, 20, 80, }, new int[] { 0, 40, 40, }));
         add (new FilledPolygon(new Color (40,60,20), new int[] {20,30,40}, new int[] {40,50,50}));
         add (new FilledPolygon(new Color (40,60,20), new int[] {80,70,60}, new int[] {40,50,50}));
@@ -72,7 +72,7 @@ public class Alien3 extends Sprite {
         // STUB
     }
     
-    public static void main(String[] args)
+/*    public static void main(String[] args)
   {
     
     JFrame window = new JFrame("Alien1");
@@ -83,6 +83,6 @@ public class Alien3 extends Sprite {
     Container c = window.getContentPane();
     c.add(panel);
     window.setVisible(true);
-  }
+  }*/
 }
 

@@ -11,8 +11,8 @@ import java.util.*;
 
 public class Aliens extends Sprite {
 
-    public Aliens() {  //creates alien
-        super(new Dimension(100, 100));
+    public Aliens(Dimension dimension) {  //creates alien
+        super(dimension);
         add(new FilledPolygon(Color.ORANGE, new int[] {0,0,100,100}, new int[] {0,100,0,100}));
         add(new FilledPolygon(Color.BLACK, new int[] {25,25,75,75}, new int[] {50,70,50,70}));
         add(new FilledPolygon(Color.BLACK, new int[] {5,5,25,25}, new int[] {30,50,30,50}));
@@ -30,6 +30,7 @@ public class Aliens extends Sprite {
          * Makes the alien
          */
     }
+
 
     private void paintBlock(Graphics g, Block block) {
         g.setColor(block.getColor());

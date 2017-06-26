@@ -23,7 +23,7 @@ public class SpaceInvaders {
     
     /** GUI for <code>SpaceInvaders</code> game. */
     private static GUI gui;
-    
+
     /**
      * <code>SpaceInvaders</code> graphical user interface.
      *
@@ -44,10 +44,11 @@ public class SpaceInvaders {
         logger.info(Utilities.getResourcePaths("/sounds"));
         //SoundFX sound = new SoundFX("sounds/some-days-you-just-can't-get-rid-of-a-bomb.wav");
         //sound.play();
+		GameLogic.newGame();
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                gui = new GUI();
+                GameLogic.getGui();
             }
         });
     }

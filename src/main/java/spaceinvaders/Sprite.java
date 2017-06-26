@@ -62,7 +62,7 @@ public class Sprite extends JComponent {
 
 		}
 		size.setSize(width, height);
-		this.getHitbox().setSize(width / SCALE * 4,height);
+		this.getHitbox().setSize(width / SCALE * 4, height);
 	}
 
 	@Override
