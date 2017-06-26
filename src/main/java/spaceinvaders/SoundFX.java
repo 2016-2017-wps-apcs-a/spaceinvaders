@@ -28,7 +28,7 @@ package spaceinvaders;
     
       public SoundFX(String fileName)
       {
-          fileName = "C:\\Users\\theto\\Documents\\APCS\\spaceinvaders\\target\\classes\\sounds\\" + fileName;
+          //fileName = "~\\src\\main\\resources\\sounds\\" + fileName;
         File  soundFile = new File(fileName);
         AudioInputStream audioInputStream = null;
         try
