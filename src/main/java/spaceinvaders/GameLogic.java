@@ -9,6 +9,7 @@ import java.util.*;
  */
 public class GameLogic {
     private static ArrayList<SpaceShip> ship;  //ship object
+    private static ArrayList<Sprite> aliens;  //aliens
     private static GUI gui;
     /**
      * Resets the game.
