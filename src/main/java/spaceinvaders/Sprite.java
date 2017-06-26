@@ -20,7 +20,7 @@ public class Sprite extends JComponent {
 	private Dimension size;
 	/** The list of <code>FilledPolygons</code> that define the sprite. */
 	private java.util.List<FilledPolygon> polys;
-	private Rectangle hitbox;
+	private Rectangle hitbox = new Rectangle();
 	private final int SCALE = 5;
 
 	public Sprite() {
@@ -83,8 +83,8 @@ public class Sprite extends JComponent {
 		super.setLocation(p);
 		Point locationHitBox = new Point((int) (p.x + 2 * size.getWidth() / SCALE), p.y);
 		Dimension dimHitBox = new Dimension((int) size.getWidth() / SCALE, (int) size.getHeight());
-//		hitbox.setBounds(new Rectangle(dimHitBox));
-//		hitbox.setLocation((int) locationHitBox.getX(), (int) locationHitBox.getY());
+		hitbox.setBounds(new Rectangle(dimHitBox));
+		hitbox.setLocation((int) locationHitBox.getX(), (int) locationHitBox.getY());
 
 	}
 
