@@ -22,6 +22,9 @@ public class Sound extends JFrame
   {
     super("Sound");
     spaceship = new SoundFX(name);
+  }
+  
+  public void playSound(){
     spaceship.play();
   }
 }
