@@ -1,3 +1,5 @@
+package spaceinvaders;
+
 /**
  * Adds sound effects to the overall game
  * 

@@ -1,70 +1,76 @@
-/*
- * SoundFX.java
- */
-package spaceinvaders; 
+package spaceinvaders;
 
-import java.io.*; 
-import javax.sound.sampled.*;
-import javax.sound.sampled.DataLine.*;
-import static javax.sound.sampled.AudioSystem.getAudioInputStream;
-import static javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED;
-
-/**
- * Describe the SoundFX class...
- *
- * @author 2016-2017 APCS A-Block
- * @author Jennifer Kim
- * @author Brandon Zhang
- */
-public class SoundFX
-{
-    private String filePath;
+    /*
+     * SoundFX.java
+     */
+     
     
-    public SoundFX(String filePath)
+    import java.io.File;
+    import java.io.IOException;
+    import javax.sound.sampled.AudioFormat;
+    import javax.sound.sampled.AudioInputStream;
+    import javax.sound.sampled.AudioSystem;
+    import javax.sound.sampled.DataLine;
+    import javax.sound.sampled.LineUnavailableException;
+    import javax.sound.sampled.SourceDataLine;
+    
+    /**
+     * Describe the SoundFX class...
+     *
+     * @author Jennifer Kim
+     * @author Brandon Zhang
+     */
+    public class SoundFX
     {
-        this.filePath = filePath;
-    }
-
-    // https://odoepner.wordpress.com/2013/07/19/play-mp3-or-ogg-using-javax-sound-sampled-mp3spi-vorbisspi/
-    public void play() {
-        ClassLoader classLoader = getClass().getClassLoader();
-        final File file = new File(classLoader.getResource(filePath).getFile());
-        
-        try (final AudioInputStream in = getAudioInputStream(file)) {
-            
-            final AudioFormat outFormat = getOutFormat(in.getFormat());
-            final Info info = new Info(SourceDataLine.class, outFormat);
-            
-            try (final SourceDataLine line =
-                 (SourceDataLine) AudioSystem.getLine(info)) {
-                
-                if (line != null) {
-                    line.open(outFormat);
-                    line.start();
-                    stream(getAudioInputStream(outFormat, in), line);
-                    line.drain();
-                    line.stop();
-                }
-            }
-            
-        } catch (UnsupportedAudioFileException 
-                     | LineUnavailableException 
-                     | IOException e) {
-            throw new IllegalStateException(e);
+      private SourceDataLine line = null;
+      private byte[] audioBytes;
+      private int numBytes;
+    
+      public SoundFX(String fileName)
+      {
+        File  soundFile = new File(fileName);
+        AudioInputStream audioInputStream = null;
+        try
+        {
+          audioInputStream = AudioSystem.getAudioInputStream(soundFile);
         }
-    }
-
-    private AudioFormat getOutFormat(AudioFormat inFormat) {
-        final int ch = inFormat.getChannels();
-        final float rate = inFormat.getSampleRate();
-        return new AudioFormat(PCM_SIGNED, rate, 16, ch, ch * 2, rate, false);
-    }
-
-    private void stream(AudioInputStream in, SourceDataLine line) 
-        throws IOException {
-        final byte[] buffer = new byte[65536];
-        for (int n = 0; n != -1; n = in.read(buffer, 0, buffer.length)) {
-            line.write(buffer, 0, n);
+        catch (Exception ex)
+        {
+          System.out.println("*** Cannot find " + fileName + " ***");
+          System.exit(1);
         }
+    
+        AudioFormat audioFormat = audioInputStream.getFormat();
+        DataLine.Info info = new DataLine.Info(SourceDataLine.class,
+                             audioFormat);
+        try
+        {
+          line = (SourceDataLine)AudioSystem.getLine(info);
+          line.open(audioFormat);
+        }
+        catch (LineUnavailableException ex)
+        {
+          System.out.println("*** Audio line unavailable ***");
+          System.exit(1);
+        }
+    
+        line.start();
+    
+        audioBytes = new byte[(int)soundFile.length()];
+    
+        try
+        {
+          numBytes = audioInputStream.read(audioBytes, 0, audioBytes.length);
+        }
+        catch (IOException ex)
+        {
+          System.out.println("*** Cannot read " + fileName + " ***");
+          System.exit(1);
+        }
+      }
+    
+      public void play()
+      {
+        line.write(audioBytes, 0, numBytes);
+      }
     }
-}
