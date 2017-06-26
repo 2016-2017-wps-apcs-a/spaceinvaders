@@ -11,6 +11,7 @@ public class GUI extends JPanel {
     private static Sprite aLaser, morePoints, alienOne;
     private static SpaceShip ship;
     private JFrame frame;
+    private JPanel panel;
     private int Width, Height;
 
     private Time time = new Time();
@@ -18,15 +19,18 @@ public class GUI extends JPanel {
     public GUI() {
 
 
-        JFrame f= new JFrame("Space Invaders Game");
-        JPanel panel=new JPanel();
+        frame = new JFrame("Space Invaders Game");
+        panel = new JPanel();
         panel.setBounds(0,0,500,600);
         panel.setBackground(Color.BLACK);
 
-        f.add(panel);
-        f.setSize(500,600);
-        f.setLayout(null);
-        f.setVisible(true);
+        frame.add(panel);
+        frame.setSize(500,600);
+        frame.setLayout(null);
+        frame.setVisible(true);
+
+        Width = frame.getWidth();
+        Height = frame.getHeight();
     }
 //        frame = new JFrame("Space Invaders");
 //        JPanel panel = new JPanel();
@@ -88,10 +92,9 @@ public class GUI extends JPanel {
     }
 
     public void add(Sprite sprite) {
-        frame.add(sprite);
-        frame.pack();
-        frame.repaint();
-        frame.setVisible(true);
+        panel.add(sprite);
+        panel.revalidate();
+        panel.repaint();
     }
 
     public int getWidth() {
