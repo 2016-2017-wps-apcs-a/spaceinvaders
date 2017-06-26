@@ -42,7 +42,7 @@ public class SpaceInvaders {
     public static void main(String[] args) {
         logger.info("# SpaceInvaders");
         logger.info(Utilities.getResourcePaths("/sounds"));
-        //SoundFX sound = new SoundFX("C:\\Users\\theto\\Documents\\APCS\\spaceinvaders\\src\\main\\resources\\sounds\\some-days-you-just-can_t-get-rid-of-a-bomb.wav");
+        //SoundFX sound = new SoundFX("~\\spaceinvaders\\src\\main\\resources\\sounds\\some-days-you-just-can_t-get-rid-of-a-bomb.wav");
         //sound.play();
         SwingUtilities.invokeLater(new Runnable() {
             @Override
