@@ -2,6 +2,7 @@ package spaceinvaders;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class GUI extends JPanel {
     /**
@@ -11,7 +12,7 @@ public class GUI extends JPanel {
     private static Sprite aLaser, morePoints, alienOne;
     private static SpaceShip ship;
     private JFrame frame;
-    private JPanel panel;
+    //private JPanel panel;
     private int Width, Height;
 
     private Time time = new Time();
@@ -20,11 +21,11 @@ public class GUI extends JPanel {
 
 
         frame = new JFrame("Space Invaders Game");
-        panel = new JPanel();
-        panel.setBounds(0,0,500,600);
-        panel.setBackground(Color.BLACK);
+        // = new JPanel();
+        this.setBounds(0,0,500,600);
+        this.setBackground(Color.BLACK);
 
-        frame.add(panel);
+        frame.add(this);
         frame.setSize(500,600);
         frame.setLayout(null);
         frame.setVisible(true);
@@ -86,15 +87,19 @@ public class GUI extends JPanel {
 //        frame.add(alienOne);
 
     //method for testing movement
-    public void move() {
-        aLaser.moveDown(2);
-        frame.repaint();
-    }
+    //public void move() {
+    //    aLaser.moveDown(2);
+    //    frame.repaint();
+    //}
 
-    public void add(Sprite sprite) {
-        panel.add(sprite);
-        panel.revalidate();
-        panel.repaint();
+    public void paintComponenet(Graphics g) {
+        super.paintComponent(g);
+
+        for (ArrayList<Sprite> sprites : GameLogic.getAliens()){
+            for (Sprite sprite : sprites){
+                sprite.paintComponent(g);
+            }
+        }
     }
 
     public int getWidth() {
