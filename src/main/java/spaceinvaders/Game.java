@@ -54,7 +54,7 @@ public class Game {
         int side = Math.min(window.getWidth() / BOXES_ACROSS, window.getHeight() / BOXES_DOWN); // assume aliens are square
         int originX = 1 * side, originY = 6 * side;
         for (int i = 0; i < ALIENS_ACROSS * ALIENS_DOWN; i++) {
-            Sprite alien = new Alien3();
+            Sprite alien = new Alien();
             alien.setSize(side * 4, side * 4);
             int x = i % ALIENS_ACROSS * side * 5 + originX;
             int y = i / ALIENS_ACROSS * side * 5 + originY;
@@ -75,7 +75,7 @@ public class Game {
             logger.debug(ship);
         }
         // RED_FLAG: test code for other alien Sprites
-        Sprite alien = new Aliens();
+        Sprite alien = new BigAlien();
         alien.setLocation(new Point(100,0));
         aliens.add(alien);
         alien = new AlienLaser();

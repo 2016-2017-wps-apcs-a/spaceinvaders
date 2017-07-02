@@ -7,9 +7,9 @@ import org.apache.logging.log4j.*;
  * @author Jason Provanzano
  */
 
-public class Aliens extends Sprite {
+public class BigAlien extends Sprite {
 
-    public Aliens() {
+    public BigAlien() {
         super(new Dimension(100, 100));
         // RED_FLAG: debug bounding box
         add(new FilledPolygon(Color.RED, null, new int[] { 0, 100, 100, 0, }, new int[] { 0, 0, 100, 100, }));

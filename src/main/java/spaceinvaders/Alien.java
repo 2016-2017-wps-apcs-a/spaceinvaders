@@ -3,9 +3,9 @@ package spaceinvaders;
 import java.awt.*;
 import org.apache.logging.log4j.*;
 // @Noah Criss
-public class Alien3 extends Sprite {
+public class Alien extends Sprite {
 
-    public Alien3() {
+    public Alien() {
         super(new Dimension(80, 80));
         Color black = Color.BLACK, white = Color.WHITE,
             red = Color.RED, green = Color.GREEN, blue = Color.BLUE,
