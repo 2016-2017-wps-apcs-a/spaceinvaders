@@ -1,20 +1,23 @@
+/*
+ * Laser.java
+ */
 package spaceinvaders;
 
 import java.awt.*;
 import org.apache.logging.log4j.*;
 
-/**
- * @author Chris Callahan, Deniz Guler
- * 
- * @Laser models a projectile from the Spaceship object that has a damage
- *        component and its own hit box.
- * 
- *        Laser models a projectile from the Spaceship object that has a damage
- *        component and its own hit box.
- * 
+/** {@link Laser} models a projectile from a {@link SpaceShip} that has a damage
+ * component and its own hitbox.
+ * @author Chris Callahan
+ * @author Deniz Guler 
  */
-public class Laser extends Sprite{
-    public Laser(){
+public class Laser extends Sprite {
+
+    //////////////////////////////// FIELDS ////////////////////////////////
+
+    ///////////////////////////// CONSTRUCTORS /////////////////////////////
+
+    public Laser() {
         super(new Dimension(6, 10));
         // RED_FLAG: debug bounding box
         add(new FilledPolygon(Color.RED, null,
@@ -27,6 +30,8 @@ public class Laser extends Sprite{
         getLogger().debug("{}, size {}, center {}",
             getClass(), getSize(), getCenter());
     }
+
+    //////////////////////////////// METHODS ///////////////////////////////
 
     private void move(){
         this.moveUp(2);

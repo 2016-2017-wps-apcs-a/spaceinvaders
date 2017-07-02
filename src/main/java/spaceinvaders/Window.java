@@ -1,19 +1,31 @@
+/*
+ * Window.java
+ */
 package spaceinvaders;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
+/** DESCRIBE Window HERE.
+ * @author
+ */
 public class Window extends JPanel {
+
+    //////////////////////////////// FIELDS ////////////////////////////////
+
     /** Preferred size of this {@link Window}. */
     private Dimension preferredSize;
     /** Current size of this {@link Window}. */
     private Dimension size;
 
+    ///////////////////////////// CONSTRUCTORS /////////////////////////////
+
     public Window() {
         size = preferredSize = new Dimension(1300, 820);
         setBackground(Color.BLACK);
     }
+
+    //////////////////////////////// METHODS ///////////////////////////////
 
     /**
      * Paint the component using a {@link Graphics} rendering object.

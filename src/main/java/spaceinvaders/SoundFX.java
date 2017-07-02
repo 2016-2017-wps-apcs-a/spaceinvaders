@@ -22,18 +22,27 @@ import org.apache.logging.log4j.*;
  */
 public class SoundFX
 {
+    //////////////////////////////// FIELDS ////////////////////////////////
+
+    /** log4j {@link Logger}. */
+    private static Logger logger = LogManager.getLogger(SpaceInvaders.SHORT);
+    /** Path to the sound file for this {@link SoundFX}. */
     private String filePath;
+
+    ///////////////////////////// CONSTRUCTORS /////////////////////////////
 
     public SoundFX(String filePath)
     {
         this.filePath = filePath;
     }
 
+    //////////////////////////////// METHODS ///////////////////////////////
+
     // https://odoepner.wordpress.com/2013/07/19/play-mp3-or-ogg-using-javax-sound-sampled-mp3spi-vorbisspi/
     public void play() {
         ClassLoader classLoader = getClass().getClassLoader();
         URL file = classLoader.getResource(filePath);
-        LogManager.getLogger(SpaceInvaders.SHORT).info(file);
+        logger.info(file);
         try (final AudioInputStream in = getAudioInputStream(file)) {
             
             final AudioFormat outFormat = getOutFormat(in.getFormat());

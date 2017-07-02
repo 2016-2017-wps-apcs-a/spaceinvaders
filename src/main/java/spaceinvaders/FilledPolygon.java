@@ -1,9 +1,21 @@
+/*
+ * FilledPolygon.java
+ */
 package spaceinvaders;
 
 import java.awt.*;
 
+/**
+ * {@link Sprite} is a {@link JComponent} base class for all on-screen items.
+ *
+ * @author 2016-2017 APCS F-Block
+ */
 public class FilledPolygon extends Polygon {
+    //////////////////////////////// FIELDS ////////////////////////////////
+
     private Color outline, fill;
+
+    ///////////////////////////// CONSTRUCTORS /////////////////////////////
 
     public FilledPolygon(Color outline, Color fill, int[] xs, int[] ys) {
         super(xs, ys, Math.max(xs.length, ys.length));
@@ -15,11 +27,8 @@ public class FilledPolygon extends Polygon {
         this(color, color, xs, ys);
     }
 
-    /*
-     * public FilledPolygon(Color color, int x, int y, int width, int height) {
-     * this(color, new int[] { x, x + width - 1, x + width - 1, x }, new int[] {
-     * y, y, y + height - 1, y + height - 1 }); }
-     */
+    //////////////////////////////// METHODS ///////////////////////////////
+
     public Color getOutline() {
         return outline;
     }
@@ -28,11 +37,6 @@ public class FilledPolygon extends Polygon {
         return fill;
     }
 
-    /*
-     * public int getX() { return this.xpoints[0]; } public int getY() { return
-     * this.ypoints[0]; } public int getWidth() { return xpoints[1] - xpoints[0]
-     * + 1; } public int getHeight() { return ypoints[2] - ypoints[1] + 1; }
-     */
     public void draw(Graphics g) {
         assert fill != null || outline != null : "both colors null";
         Color color = g.getColor();

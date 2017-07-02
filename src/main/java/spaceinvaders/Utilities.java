@@ -11,12 +11,18 @@ import java.util.*;
 import org.apache.logging.log4j.*;
 
 /**
- * Describe the Utilities class...
+ * Describe the {@link Utilities} class...
  *
  * @author 2016-2017 APCS A-Block
  */
 public class Utilities {
-  /**
+    //////////////////////////////// FIELDS ////////////////////////////////
+
+    ///////////////////////////// CONSTRUCTORS /////////////////////////////
+
+    //////////////////////////////// METHODS ///////////////////////////////
+
+    /**
      * Read all file paths from directory and return them as a {@link java.util.List}.
      * Precondition: directory is not null, not empty, and must start with '/'.
      *
@@ -40,7 +46,7 @@ public class Utilities {
         return path;
     }
 
-  /**
+    /**
      * Read all file paths from directory and return them as a {@link java.util.List}.
      * Precondition: directory is not null, not empty, and must start with '/'.
      *

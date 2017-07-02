@@ -10,6 +10,10 @@ import org.apache.logging.log4j.*;
  */
 public class SpaceShip extends Sprite {
 
+    //////////////////////////////// FIELDS ////////////////////////////////
+
+    ///////////////////////////// CONSTRUCTORS /////////////////////////////
+
     public SpaceShip() {  //creates space ship
         super(new Dimension(200, 200));
         // RED_FLAG: debug bounding box
@@ -36,6 +40,8 @@ public class SpaceShip extends Sprite {
         getLogger().debug("{}, size {}, center {}",
             getClass(), getSize(), getCenter());
     }
+
+    //////////////////////////////// METHODS ///////////////////////////////
 
     /**
      * Moves the ship left.
