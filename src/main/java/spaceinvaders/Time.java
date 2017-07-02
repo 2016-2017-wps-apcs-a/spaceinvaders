@@ -1,35 +1,65 @@
+/*
+ * Time.java
+ * 
+ * @author 2016-2017 APCS F-Block
+ * @author Chris Callahan
+ */
 package spaceinvaders;
 
-/*
- * @author Chris Callahan
- * */
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.util.List;
+import org.apache.logging.log4j.*;
 
-import javax.swing.Timer;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+/**
+ * {@link Time} handles all timing for {@link SpaceInvaders} game.
+ */
 public class Time implements ActionListener {
-    private final int TICK_RATE = 10; // 20ms = 1 tick
-    private long currentTick;
+
+    //////////////////////////////// FIELDS ////////////////////////////////
+
+    /** {@link Window} redraw delay (in ms). */
+    public static final int TICK = 10;
+
+    /** Holds {@link Window} redraw {@link Timer}. */
     private Timer clock;
+    /** Tick that synchronizes all game timing. */
+    private long currentTick = 0;
+
+    ///////////////////////////// CONSTRUCTORS /////////////////////////////
+
+    /**
+     * Constructs a new game {@link Timer}.
+     */
     public Time() {
         currentTick = 0;
-        clock = new Timer(TICK_RATE, this);
-        clock.setInitialDelay(0);
+        clock = new Timer(TICK, this);
+        //clock.setInitialDelay(0); // RED_FLAG: needed?
         clock.start();
     }
-    // action performed every tick.
-    public void actionPerformed(ActionEvent e) {
-        currentTick++;
-        GameLogic.getGui().repaint();
-        //if (currentTick % 1 == 0)
-        //    GUI.move();
-        //GameLogic.getShip().moveDown(2);
 
-        //System.out.print("*" + getCurrentTick());
+    //////////////////////////////// METHODS ///////////////////////////////
+
+    /**
+     * Accessor method for currentTick.
+     * @return current game time base
+     */
+    public long getCurrentTick() {
+        return currentTick;
     }
 
-    public long getCurrentTick(){
-        return currentTick;
+    /**
+     * Invoked when a ({@link Timer}) action occurs.
+     * 
+     * @param e the {@link ActionEvent}
+     */
+    public void actionPerformed(ActionEvent e) {
+        if (Game.isRunning()) {
+            currentTick++;
+            Game.move(currentTick);          // move the components
+            Game.getWindow().repaint();      // repaint the window
+            //Game.getWindow().scoreUpdate();  // update score
+        }
     }
 }

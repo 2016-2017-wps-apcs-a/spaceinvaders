@@ -1,6 +1,7 @@
 package spaceinvaders;
 
 import java.awt.*;
+import org.apache.logging.log4j.*;
 
 /**
  * @author Chris Callahan, Deniz Guler
@@ -13,17 +14,21 @@ import java.awt.*;
  * 
  */
 public class Laser extends Sprite{
-    private int[] xs = {2, 4, 6, 6,  4,  2, 0, 0,};
-    private int[] ys = {0, 0, 2, 8, 10, 10, 8, 2,};
-    //private HitBox hitBox = new HitBox();
     public Laser(){
-        super(new Dimension(5, 10));
-        this.add(new FilledPolygon(Color.BLACK, Color.WHITE, xs, ys));
+        super(new Dimension(6, 10));
+        // RED_FLAG: debug bounding box
+        add(new FilledPolygon(Color.RED, null,
+            new int[] { 0, 6, 6, 0, }, new int[] { 0, 0, 10, 10, }));
+
+        add(new FilledPolygon(Color.BLACK, Color.WHITE, 
+            new int[] { 2, 4, 6, 6,  4,  2, 0, 0, },
+            new int[] { 0, 0, 2, 8, 10, 10, 8, 2, }));
+        
+        getLogger().debug("{}, size {}, center {}",
+            getClass(), getSize(), getCenter());
     }
 
     private void move(){
         this.moveUp(2);
     }
-
-
 }

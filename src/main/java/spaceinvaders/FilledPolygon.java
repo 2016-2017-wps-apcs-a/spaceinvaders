@@ -34,11 +34,25 @@ public class FilledPolygon extends Polygon {
      * + 1; } public int getHeight() { return ypoints[2] - ypoints[1] + 1; }
      */
     public void draw(Graphics g) {
+        assert fill != null || outline != null : "both colors null";
         Color color = g.getColor();
-        g.setColor(fill);
-        g.fillPolygon(this);
-        g.setColor(outline);
-        g.drawPolygon(this);
+        if (fill != null) {
+            g.setColor(fill);
+            g.fillPolygon(this);
+        }
+        if (outline != null) {
+            g.setColor(outline);
+            g.drawPolygon(this);
+        }
         g.setColor(color);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder().append("[")
+            .append(outline).append(":").append(fill).append(":[");
+        for (int i = 0; i < xpoints.length; i++)
+            sb.append(i > 0 ? "," : "").append(new Point(xpoints[i], ypoints[i]));
+        return sb.append("]]").toString();
     }
 }

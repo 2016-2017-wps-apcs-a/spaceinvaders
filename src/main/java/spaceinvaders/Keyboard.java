@@ -18,13 +18,13 @@ public class Keyboard implements KeyListener {
         int id = e.getKeyCode();
         switch (id) {
         case KeyEvent.VK_LEFT:
-            GameLogic.getShip().moveLeft();
+            Game.getShip().moveLeft();
             break;
         case KeyEvent.VK_RIGHT:
-            GameLogic.getShip().moveRight();
+            Game.getShip().moveRight();
             break;
         case KeyEvent.VK_SPACE:
-            GameLogic.getShip().shoot();
+            Game.getShip().shoot();
             break;
         default:
             break;
@@ -44,11 +44,11 @@ public class Keyboard implements KeyListener {
         switch (id) {
         case KeyEvent.VK_P:
         case 'p':
-             GameLogic.togglePause();
+             Game.togglePause();
             break;
         case KeyEvent.VK_R:
         case 'r':
-             GameLogic.newGame();
+             Game.newGame();
             break;
         default:
             break;

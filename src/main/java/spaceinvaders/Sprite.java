@@ -7,125 +7,161 @@ import java.awt.*;
 import java.awt.geom.*;
 import javax.swing.*;
 import java.util.*;
+import org.apache.logging.log4j.*;
 
 /**
- * Sprite is a JComponent base class for all on-screen items.
+ * {@link Sprite} is a {@link JComponent} base class for all on-screen items.
  *
  * @author David C. Petty, Deniz Guler, Chris Callahan, Valeriy Soltan
  */
 
 public class Sprite extends JComponent {
+    /** log4j {@link Logger}. */
+    private static Logger logger = LogManager.getLogger(SpaceInvaders.SHORT);
+    /** Preferred size of this {@link Sprite}. */
+    private Dimension preferredSize;
+    /** Current size of this {@link Sprite}. */
+    private Dimension size;
+    /** The list of {@link FilledPolygon}s that define the {@link Sprite}. */
+    private java.util.List<FilledPolygon> polys;
+    /** Fraction of {@link Sprite} horizontal dimension representing a hit. */
+    private static final int HIT_SCALE = 5;
 
+    public Sprite(Dimension size) {
+        polys = new ArrayList<FilledPolygon>();
+        this.size = preferredSize = size;
+    }
 
+    public Sprite() {
+        this(new Dimension(100, 100));   // default size
+    }
 
-	/** Preferred size of this <code>Sprite</code>. */
-	private Dimension preferredSize;
-	/** Current size of this <code>Sprite</code>. */
-	private Dimension size;
-	/** The list of <code>FilledPolygons</code> that define the sprite. */
-	private java.util.List<FilledPolygon> polys;
-	private Rectangle hitbox = new Rectangle();
-	private final int SCALE = 5;
+    @Override
+    public void setSize(int width, int height) {
+        double xScale = width / size.getWidth();
+        double yScale = height / size.getHeight();
+        logger.debug("setSize: (xScale) {} (yScale) {}", xScale, yScale);
+        int x = getX(), y = getY();
+        for (FilledPolygon poly : polys) {
+            assert poly.xpoints.length == poly.ypoints.length : "invalid polygon";
+            for (int i = 0; i < poly.xpoints.length; i++) {
+                poly.xpoints[i] = (int) Math.round((poly.xpoints[i] - x) * xScale) + x;
+                poly.ypoints[i] = (int) Math.round((poly.ypoints[i] - y) * yScale) + y;
+            }
+            
+        }
+        size.setSize(width, height);
+    }
 
-	public Sprite() {
-		polys = new ArrayList<FilledPolygon>();
-		size = preferredSize = new Dimension(100, 100); // default size
-		//System.out.println(SwingUtilities.getRoot(SpaceInvaders.getGUI()));
+    @Override
+    public void setSize(Dimension size) {
+        // RED_FLAG: setSize(Dimension) calls setSize(int, int) else infinite
+        // recursion
+        setSize(size.width, size.height);
+    }
 
-		//creates hitbox frame
+    @Override
+    public Dimension getSize() {
+        return size;
+    }
 
-		// System.out.println(SpaceInvaders.getGUI().getPreferredSize());
-	}
+    @Override
+    public Dimension getPreferredSize() {
+        return preferredSize;
+    }
 
-	public Sprite(Dimension size) {
-		this();
-		this.size = preferredSize = size;
-		this.hitbox = new Rectangle(new Point(0, 0), size);
-	}
+    @Override
+    public void setLocation(Point p) {
+        for (FilledPolygon poly : polys)
+            poly.translate((int) (p.getX() - getX()), (int) (p.getY() - getY()));
+        super.setLocation(p);
+    }
 
-	public void add(FilledPolygon poly) {
-		polys.add(poly);
-	}
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        for (FilledPolygon poly : polys) {
+            poly.draw(g);
+        }
+    }
 
-	@Override
-	public void setSize(int width, int height) {
-		double xScale = width / size.getWidth();
-		double yScale = height / size.getHeight();
-		int x = getX(), y = getY();
-		System.out.println(xScale + " " + yScale);
-		for (FilledPolygon poly : polys) {
-			assert poly.xpoints.length == poly.ypoints.length : "invalid polygon";
-			for (int i = 0; i < poly.xpoints.length; i++) {
-				poly.xpoints[i] = (int) Math.round((poly.xpoints[i] - x) * xScale) + x;
-				poly.ypoints[i] = (int) Math.round((poly.ypoints[i] - y) * yScale) + y;
-			}
+    /** Return logger for this {@link Sprite}.
+     * @return logger for this {@link Sprite}
+     */
+    public Logger getLogger() { return logger; }
 
-		}
-		size.setSize(width, height);
-		this.getHitbox().setSize(width / SCALE * 4, height);
-	}
+    public void add(FilledPolygon poly) {
+        polys.add(poly);
+    }
 
-	@Override
-	public void setSize(Dimension size) {
-		// RED_FLAG: setSize(Dimension) calls setSize(int, int) else infinite
-		// recursion
-		setSize(size.width, size.height);
-	}
+    /**
+     * Translate this {@link Sprite} by dx & dy.
+     * @param dx distance to translate in x direction
+     * @param dy distance to translate in y direction
+     */
+    public void translate(int dx, int dy) {
+        for (FilledPolygon poly : polys)
+            poly.translate(dx, dy);
+        super.setLocation(new Point(getX() + dx, getY() + dy));
+    }
 
-	@Override
-	public Dimension getSize() {
-		return size;
-	}
+    /** Move this {@link Sprite} up.
+     * @param d translation distance
+     */
+    public void moveUp(int d) { translate(0, -d); }
 
-	@Override
-	public Dimension getPreferredSize() {
-		return preferredSize;
-	}
+    /** Move this {@link Sprite} down.
+     * @param d translation distance
+     */
+    public void moveDown(int d) { translate(0, d); }
 
-	@Override
-	public void setLocation(Point p) {
-		for (FilledPolygon poly : polys)
-			poly.translate((int) (p.getX() - getX()), (int) (p.getY() - getY()));
-		super.setLocation(p);
-		Point locationHitBox = new Point((int) (p.x + 2 * preferredSize.getWidth() / SCALE), p.y);
-		Dimension dimHitBox = new Dimension((int) preferredSize.getWidth() / SCALE, (int) preferredSize.getHeight());
-		hitbox.setBounds(new Rectangle(dimHitBox));
-		hitbox.setLocation((int) locationHitBox.getX(), (int) locationHitBox.getY());
+    /** Move this {@link Sprite} left.
+     * @param d translation distance
+     */
+    public void moveLeft(int d) { translate(-d, 0); }
 
-	}
+    /** Move this {@link Sprite} right.
+     * @param d translation distance
+     */
+    public void moveRight(int d) { translate(d, 0); }
 
-	public void translate(int dx, int dy) {
-		for (FilledPolygon poly : polys)
-			poly.translate(dx, dy);
-		super.setLocation(new Point(getX() + dx, getY() + dy));
-		hitbox.setLocation(new Point((int) (hitbox.getX() + dx), (int) (hitbox.getY() + dy)));
-	}
+    /** Return a {@link Rectangle} representing the hitbox of this {@link Sprite}.
+     * @return hitbox {@link Rectangle}
+     */
+    private Rectangle getHitbox() {
+        // xShift is distance from left to hitBox left.
+        int xShift = getWidth() * (HIT_SCALE - 1) / 2 / HIT_SCALE;
+        int x = getLocation().x + xShift, y = getLocation().y;
+        int width = getWidth() / HIT_SCALE, height = getHeight();
+        // RED_FLAG: creates a new Rectangle with every invocation
+        return new Rectangle(new Point(x, y), new Dimension(width, height));
+    }
 
-	public void moveUp(int d) {
-		translate(0, -d);
-	}
+    /** Return center of this {@link Sprite}.
+     * @return center of this {@link Sprite}, or (0, 0) if nothing added
+     */
+    public Point getCenter() {
+        if (polys.size() == 0)
+            return new Point();
+        // RED_FLAG: creates a new Rectangle2D union with every invocation
+        Rectangle2D bounds = polys.get(0).getBounds2D();
+        for (int i = 1; i < polys.size(); i++)
+            bounds = bounds.createUnion(polys.get(i).getBounds2D());
+        Point center =
+            new Point((int) bounds.getCenterX(), (int) bounds.getCenterY());
+        logger.debug("{}, bounds {}, center {}", getClass(), bounds, center);
+        return center;
+    }
 
-	public void moveDown(int d) {
-		translate(0, d);
-	}
+    public boolean isHit(Point p) {
+        return getHitbox().contains(p);
+    }
 
-	public void moveLeft(int d) {
-		translate(-d, 0);
-	}
-
-	public void moveRight(int d) {
-		translate(d, 0);
-	}
-
-	public Rectangle getHitbox(){
-		return this.hitbox;
-	}
-
-	@Override
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		for (FilledPolygon poly : polys) {
-			poly.draw(g);
-		}
-	}
+    @Override
+    public String toString() {
+        return new StringBuilder()
+            .append(getClass().getName()).append(":")
+            .append(getLocation()).append(":").append(getSize()).append(":")
+            .append(polys).toString();
+    }
 }

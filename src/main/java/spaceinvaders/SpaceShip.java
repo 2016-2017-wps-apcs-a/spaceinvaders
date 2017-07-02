@@ -1,17 +1,20 @@
 package spaceinvaders;
 
-import java.awt.event.*;
-import javax.swing.*;
 import java.awt.*;
-import java.util.*;
+import org.apache.logging.log4j.*;
 
 /**
- * @author Jacob Naroian, Deniz Guler
+ * @author 2016-2017 APCS F-Block
+ * @author Deniz Guler
+ * @author Jacob Naroian
  */
 public class SpaceShip extends Sprite {
 
     public SpaceShip() {  //creates space ship
-        super(new Dimension(100, 100));
+        super(new Dimension(200, 200));
+        // RED_FLAG: debug bounding box
+        add(new FilledPolygon(Color.RED, null, new int[] { 0, 200, 200, 0, }, new int[] { 0, 0, 200, 200, }));
+
         add(new FilledPolygon(new Color(60, 10, 10), new int[] { 0, 100, 200, }, new int[] { 110, 10, 110, })); //17
         add(new FilledPolygon(Color.RED, new int[] { 40, 160, 160, 40, }, new int[] { 70, 70, 110, 110, })); //16
         add(new FilledPolygon(Color.GRAY, new int[] { 40, 50, 50, 40, }, new int[] { 20, 20, 70, 70, })); //1        
@@ -30,6 +33,8 @@ public class SpaceShip extends Sprite {
         add(new FilledPolygon(Color.RED, new int[] { 105, 110, 110, 105, }, new int[] { 0, 0, 50, 50, })); //4
         add(new FilledPolygon(Color.GRAY, new int[] { 94, 105, 105, 94, }, new int[] { 0, 0, 60, 60, })); //3
        
+        getLogger().debug("{}, size {}, center {}",
+            getClass(), getSize(), getCenter());
         /*
          * blocks.add(new Block(Color.BLACK, 0, 0, 4080, 1420)); // draws
          * rectangles of space ship blocks.add(new Block(Color.RED, 685, 720,

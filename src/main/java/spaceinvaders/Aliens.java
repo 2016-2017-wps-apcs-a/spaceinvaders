@@ -1,9 +1,7 @@
 package spaceinvaders;
 
-import java.awt.event.*;
-import javax.swing.*;
 import java.awt.*;
-import java.util.*;
+import org.apache.logging.log4j.*;
 
 /**
  * @author Jason Provanzano
@@ -11,8 +9,11 @@ import java.util.*;
 
 public class Aliens extends Sprite {
 
-    public Aliens(Dimension dimension) {  //creates alien
-        super(dimension);
+    public Aliens() {
+        super(new Dimension(100, 100));
+        // RED_FLAG: debug bounding box
+        add(new FilledPolygon(Color.RED, null, new int[] { 0, 100, 100, 0, }, new int[] { 0, 0, 100, 100, }));
+
         add(new FilledPolygon(Color.ORANGE, new int[] {0,0,100,100}, new int[] {0,100,0,100}));
         add(new FilledPolygon(Color.BLACK, new int[] {25,25,75,75}, new int[] {50,70,50,70}));
         add(new FilledPolygon(Color.BLACK, new int[] {5,5,25,25}, new int[] {30,50,30,50}));
@@ -26,14 +27,8 @@ public class Aliens extends Sprite {
         add(new FilledPolygon(Color.WHITE, new int[] {45,55,50}, new int[] {70,70,50}));
         add(new FilledPolygon(Color.WHITE, new int[] {50,60,55}, new int[] {50,50,70}));
         add(new FilledPolygon(Color.WHITE, new int[] {55,65,60}, new int[] {70,70,50}));
-        /*
-         * Makes the alien
-         */
-    }
 
-
-    private void paintBlock(Graphics g, Block block) {
-        g.setColor(block.getColor());
-        g.fillRect(block.getX(), block.getY(), block.getWidth(), block.getHeight());
+        getLogger().debug("{}, size {}, center {}",
+            getClass(), getSize(), getCenter());
     }
 }
