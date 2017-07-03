@@ -1,12 +1,17 @@
-/**
+/*
  * Keyboard.java
- *
- * @author Tyler Clift, Ricardo Gayle Jr., Benny Liang, Tom Diamond
  */
 package spaceinvaders;
 
 import java.awt.event.*;
 
+/** DESCRIBE {@link Keyboard} HERE.
+ * @author 2016-2017 APCS A-Block
+ * @author Tyler Clift
+ * @author Tom Diamond
+ * @author Ricardo Gayle Jr.
+ * @author Benny Liang
+ */
 public class Keyboard implements KeyListener {
     //////////////////////////////// METHODS ///////////////////////////////
 

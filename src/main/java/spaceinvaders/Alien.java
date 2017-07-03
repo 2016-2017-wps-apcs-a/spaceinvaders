@@ -2,7 +2,11 @@ package spaceinvaders;
 
 import java.awt.*;
 import org.apache.logging.log4j.*;
-// @Noah Criss
+
+/** DESCRIBE {@link Alien} HERE.
+ * @author 2016-2017 APCS A-Block
+ * @author Noah Criss
+ */
 public class Alien extends Sprite {
 
     public Alien() {

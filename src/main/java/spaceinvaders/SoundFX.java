@@ -13,9 +13,7 @@ import static javax.sound.sampled.AudioSystem.getAudioInputStream;
 import static javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED;
 import org.apache.logging.log4j.*;
 
-/**
- * Describe the SoundFX class...
- *
+/** DESCRIBE {@link SoundFX} HERE.
  * @author 2016-2017 APCS A-Block
  * @author Jennifer Kim
  * @author Brandon Zhang

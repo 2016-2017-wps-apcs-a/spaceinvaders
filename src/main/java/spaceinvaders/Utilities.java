@@ -10,9 +10,7 @@ import java.nio.file.attribute.*;
 import java.util.*;
 import org.apache.logging.log4j.*;
 
-/**
- * Describe the {@link Utilities} class...
- *
+/** DESCRIBE {@link Utilities} HERE.
  * @author 2016-2017 APCS A-Block
  */
 public class Utilities {

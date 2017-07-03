@@ -2,7 +2,11 @@ package spaceinvaders;
 
 import java.awt.*;
 import org.apache.logging.log4j.*;
-// @Jacob Naroian 
+
+/** DESCRIBE {@link AlienLaser} HERE.
+ * @author 2016-2017 APCS A-Block
+ * @author Jacob Naroian 
+ */
 public class AlienLaser extends Sprite { 
     public AlienLaser() {
         super(new Dimension(10, 30));

@@ -3,8 +3,8 @@ package spaceinvaders;
 import java.awt.*;
 import org.apache.logging.log4j.*;
 
-/**
- * @author 2016-2017 APCS F-Block
+/** DESCRIBE {@link SpaceShip} HERE.
+ * @author 2016-2017 APCS A-Block
  * @author Deniz Guler
  * @author Jacob Naroian
  */
@@ -47,14 +47,14 @@ public class SpaceShip extends Sprite {
      * Moves the ship left.
      */
     public void moveLeft() {
-        this.moveLeft(1);
+        this.moveLeft(Game.getSide());
     }
 
     /**
      * Moves the ship right.
      */
     public void moveRight() {
-        this.moveRight(1);
+        this.moveRight(Game.getSide());
     }
     
     /**

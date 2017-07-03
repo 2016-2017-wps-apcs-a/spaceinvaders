@@ -9,7 +9,7 @@ import javax.swing.*;
 import org.apache.logging.log4j.*;
 
 /**
- * SpaceInvaders is the main class for the SpaceInvaders game.
+ * {@link SpaceInvaders} is the main class for the {@link SpaceInvaders} game.
  *
  * @author 2016-2017 APCS A-Block
  */

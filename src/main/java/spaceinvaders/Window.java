@@ -6,8 +6,8 @@ package spaceinvaders;
 import javax.swing.*;
 import java.awt.*;
 
-/** DESCRIBE Window HERE.
- * @author
+/** DESCRIBE {@link Window} HERE.
+ * @author 2016-2017 APCS A-Block
  */
 public class Window extends JPanel {
 

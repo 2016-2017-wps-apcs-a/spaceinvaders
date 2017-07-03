@@ -51,7 +51,7 @@ public class Game {
         // Add aliens. There are ALIENS_ACROSS x ALIENS_DOWN aliens.
         // Each has a border of 1 side and is a 4-side x 4-side square.
         // The alien origin is ( 1-side, 6-side ).
-        int side = Math.min(window.getWidth() / BOXES_ACROSS, window.getHeight() / BOXES_DOWN); // assume aliens are square
+        int side = getSide();   // assume aliens are square
         int originX = 1 * side, originY = 6 * side;
         for (int i = 0; i < ALIENS_ACROSS * ALIENS_DOWN; i++) {
             Sprite alien = new Alien();
@@ -97,6 +97,14 @@ public class Game {
      */
     public static Window getWindow() { return window; }
 
+    /** Return square box grid side dimension.
+     * @return square box grid side dimension
+     */
+    public static int getSide() {
+        return Math.min(
+            window.getWidth() / BOXES_ACROSS, window.getHeight() / BOXES_DOWN);
+    }
+
     /**
      * Move all components based on tick.
      * @param tick current game {@link Timer} tick
@@ -106,7 +114,7 @@ public class Game {
             logger.trace("tick: {}", tick / 100);
             // Move aliens.
             for (int i = 0; i < aliens.size(); i++) {
-                aliens.get(i).moveRight(10);
+                aliens.get(i).moveRight(getSide() / 2);
             }
         }
     }

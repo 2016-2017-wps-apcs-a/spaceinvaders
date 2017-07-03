@@ -14,6 +14,7 @@ import org.apache.logging.log4j.*;
 
 /**
  * {@link Time} handles all timing for {@link SpaceInvaders} game.
+ * @author 2016-2017 APCS A-Block
  */
 public class Time implements ActionListener {
 
