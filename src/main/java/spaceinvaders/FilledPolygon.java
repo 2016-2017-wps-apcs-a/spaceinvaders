@@ -6,9 +6,10 @@ package spaceinvaders;
 import java.awt.*;
 
 /**
- * {@link Sprite} is a {@link JComponent} base class for all on-screen items.
+ * {@link FilledPolygon} is a {@link Polygon} that includes outline and fill
+ * colors and that can be repainted with a {@link Graphics} object.
  *
- * @author 2016-2017 APCS F-Block
+ * @author 2016-2017 APCS A-Block
  */
 public class FilledPolygon extends Polygon {
     //////////////////////////////// FIELDS ////////////////////////////////
@@ -37,7 +38,7 @@ public class FilledPolygon extends Polygon {
         return fill;
     }
 
-    public void draw(Graphics g) {
+    public void paint(Graphics g) {
         assert fill != null || outline != null : "both colors null";
         Color color = g.getColor();
         if (fill != null) {

@@ -8,9 +8,9 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple App.
+ * Unit test for {@link Window}.
  *
- * @author David C. Petty
+ * @author 2016-2017 APCS A-Block
  */
 public class WindowTest extends TestCase {
     /**

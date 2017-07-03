@@ -8,6 +8,8 @@ import org.apache.logging.log4j.*;
 
 /** {@link Laser} models a projectile from a {@link SpaceShip} that has a damage
  * component and its own hitbox.
+ *
+ * @author 2016-2017 APCS A-Block
  * @author Chris Callahan
  * @author Deniz Guler 
  */

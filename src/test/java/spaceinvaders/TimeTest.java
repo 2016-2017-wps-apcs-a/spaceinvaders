@@ -3,9 +3,14 @@
  */
 package spaceinvaders;
 
-
-//import org.junit.Test;
-
+/**
+ * Unit test for {@link Time}.
+ *
+ * @author 2016-2017 APCS A-Block
+ * @author Chris Callahan
+ * @author Deniz Guler
+ * @author Valeriy Soltan
+ */
 public class TimeTest {
     //@Test
     public static void testCurrentTick() {

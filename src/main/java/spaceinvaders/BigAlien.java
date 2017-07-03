@@ -4,6 +4,7 @@ import java.awt.*;
 import org.apache.logging.log4j.*;
 
 /** DESCRIBE {@link BigAlien} HERE.
+ *
  * @author 2016-2017 APCS A-Block
  * @author Jason Provanzano
  */

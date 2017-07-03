@@ -11,7 +11,7 @@ import org.apache.logging.log4j.*;
  * {@link Game} class initializes {@link SpaceInvaders} game and holds 
  * universal static fields.
  *
- * @author 2016-2017 APCS F-Block
+ * @author 2016-2017 APCS A-Block
  * @author Deniz Guler
  * @author Valeriy Soltan
  */

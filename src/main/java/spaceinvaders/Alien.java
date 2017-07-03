@@ -4,6 +4,7 @@ import java.awt.*;
 import org.apache.logging.log4j.*;
 
 /** DESCRIBE {@link Alien} HERE.
+ *
  * @author 2016-2017 APCS A-Block
  * @author Noah Criss
  */

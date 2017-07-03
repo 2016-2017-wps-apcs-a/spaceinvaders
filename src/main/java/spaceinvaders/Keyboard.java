@@ -6,6 +6,7 @@ package spaceinvaders;
 import java.awt.event.*;
 
 /** DESCRIBE {@link Keyboard} HERE.
+ *
  * @author 2016-2017 APCS A-Block
  * @author Tyler Clift
  * @author Tom Diamond

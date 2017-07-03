@@ -12,7 +12,7 @@ import org.apache.logging.log4j.*;
 /**
  * {@link Sprite} is a {@link JComponent} base class for all on-screen items.
  *
- * @author 2016-2017 APCS F-Block
+ * @author 2016-2017 APCS A-Block
  * @author Chris Callahan
  * @author Deniz Guler
  * @author Valeriy Soltan
@@ -172,7 +172,7 @@ public class Sprite extends JComponent {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         for (FilledPolygon poly : polys) {
-            poly.draw(g);
+            poly.paint(g);
         }
     }
 
