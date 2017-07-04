@@ -22,7 +22,7 @@ public class Time implements ActionListener {
     //////////////////////////////// FIELDS ////////////////////////////////
 
     /** {@link Window} redraw delay (in ms). */
-    public static final int TICK = 10;
+    public static final int TICK = 50;
 
     /** Holds {@link Window} redraw {@link Timer}. */
     private Timer clock;
@@ -60,7 +60,7 @@ public class Time implements ActionListener {
         if (Game.isRunning()) {
             currentTick++;
             Game.move(currentTick);          // move the components
-            Game.getWindow().repaint();      // repaint the window
+            //Game.getWindow().repaint();      // repaint the window
             //Game.getWindow().scoreUpdate();  // update score
         }
     }

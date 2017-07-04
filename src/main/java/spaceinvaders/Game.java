@@ -110,13 +110,14 @@ public class Game {
      * @param tick current game {@link Timer} tick
      */
     public static void move(long tick) {
-        if (tick % 100 == 0) {
-            logger.trace("tick: {}", tick / 100);
+        if (tick % 20 == 0) {
+            logger.info("tick: {}", tick / 20);
             // Move aliens.
             for (int i = 0; i < aliens.size(); i++) {
                 aliens.get(i).moveRight(getSide() / 2);
             }
         }
+        window.repaint();
     }
 
     /**

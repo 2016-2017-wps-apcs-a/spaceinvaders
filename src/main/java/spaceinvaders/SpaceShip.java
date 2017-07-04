@@ -48,14 +48,14 @@ public class SpaceShip extends Sprite {
      * Moves the ship left.
      */
     public void moveLeft() {
-        this.moveLeft(Game.getSide());
+        moveLeft(Game.getSide());
     }
 
     /**
      * Moves the ship right.
      */
     public void moveRight() {
-        this.moveRight(Game.getSide());
+        moveRight(Game.getSide());
     }
     
     /**
