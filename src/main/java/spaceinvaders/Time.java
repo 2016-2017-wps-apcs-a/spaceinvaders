@@ -35,7 +35,7 @@ public class Time implements ActionListener {
      * Constructs a new game {@link Timer}.
      */
     public Time() {
-        currentTick = 0;
+        initializeCurrentTick();
         clock = new Timer(TICK, this);
         //clock.setInitialDelay(0); // RED_FLAG: needed?
         clock.start();
@@ -50,6 +50,9 @@ public class Time implements ActionListener {
     public long getCurrentTick() {
         return currentTick;
     }
+
+    /** Initialize currentTick to zero. */
+    public void initializeCurrentTick() { currentTick = 0; }
 
     /**
      * Invoked when a ({@link Timer}) action occurs.

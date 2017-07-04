@@ -30,7 +30,7 @@ public class Game {
     /** {@link SpaceInvaders} game {@link Window}. */
     private static Window window;
     /** {@link SpaceInvaders} game {@link Time}. */
-    private static Time timebase;
+    private static Time timebase = new Time();
 
     private static java.util.List<Sprite> ships = new ArrayList<Sprite>();
     private static java.util.List<Sprite> aliens = new ArrayList<Sprite>();
@@ -44,15 +44,16 @@ public class Game {
     //////////////////////////////// METHODS ///////////////////////////////
 
     public static void newGame(Window window) {
-        Game.window = window;
         state = State.RUNNING;
-        timebase = new Time();
+        Game.window = window;
+        timebase.initializeCurrentTick();
 
         // Add aliens. There are ALIENS_ACROSS x ALIENS_DOWN aliens.
         // Each has a border of 1 side and is a 4-side x 4-side square.
         // The alien origin is ( 1-side, 6-side ).
         int side = getSide();   // assume aliens are square
         int originX = 1 * side, originY = 6 * side;
+        aliens.clear();
         for (int i = 0; i < ALIENS_ACROSS * ALIENS_DOWN; i++) {
             Sprite alien = new Alien();
             alien.setSize(side * 4, side * 4);
@@ -66,6 +67,7 @@ public class Game {
         // Each is a 4-side x 4-side square.
         // The spaceship origin is ( 46-side, 36-side ).
         originX = 46 * side; originY = 36 * side;
+        ships.clear();
         for (int i = 0; i < NUMBER_SHIPS; i++) {
             Sprite ship = new SpaceShip();
             ship.setSize(side * 4, side * 4);
